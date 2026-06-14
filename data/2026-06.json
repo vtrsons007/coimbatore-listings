@@ -1,6 +1,3 @@
-Here is the fully extended and exhaustive dataset containing the readable advertisements from the newspaper page in your second image (image_2.png).
-This dataset has been fully extracted and structured into a single unified JSON array so you can drop it directly into your data/2026-06.json archive file.
-```json
 [
   {
     "id": "20260614_col1_01",
