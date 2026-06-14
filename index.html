@@ -377,7 +377,7 @@
                     </div>
                     <div class="card-footer">
                         <a href="tel:${item.phone.replace(/\s+/g, '')}" class="phone-link">📞 ${item.phone}</a>
-                        <a href="${item.actionUrl || '#'}" class="btn-action">Interact</a>
+                        <a href="https://www.google.com/search?q=${safeCompany}" target="_blank" class="btn-action">Interact</a>                       
                     </div>
                 `;
                 grid.appendChild(card);
