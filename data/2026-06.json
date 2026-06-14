@@ -1,81 +1,237 @@
 [
   {
-    "id": "20260614_01",
+    "id": "20260614_row1_01",
+    "datePosted": "2026-06-14",
+    "category": "services",
+    "title": "Atchaya Gold Company - Cash for Gold",
+    "company": "Atchaya Gold Company",
+    "details": {
+      "Service": "Instant cash for gold and silver ornaments",
+      "Features": "Highest market price paid instantly"
+    },
+    "regionalText": "தங்கம் வெள்ளி விற்க - அக்ஷயா கோல்ட் கம்பெனி. மார்க்கெட் விலைக்கு தங்கம் வெள்ளி விற்க.",
+    "phone": "88830 31000",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row1_02",
     "datePosted": "2026-06-14",
     "category": "jobs",
-    "title": "Accountant Cum Office Assistant",
-    "company": "Mayur Gas Service",
+    "title": "Urgent Openings for Female Office Assistants",
+    "company": "Santhana Lakshmi Metals Recruitments",
     "details": {
-      "Qualification": "10th, +2, or Any Degree",
-      "Skills Required": "Tally Prime knowledge with experience",
-      "Gender Preference": "Male / Female",
-      "Address": "No. 18, Thannir Pandal (to) Kodisia Road, Coimbatore - 04"
+      "Role": "Billing Machine Cashier, Accountant, System Staff, Parcel Counter",
+      "Salary": "Rs. 11,000 - Rs. 13,000",
+      "Location": "Coimbatore City Shop Floor"
     },
-    "regionalText": "தகுதி: 10, +2, டிகிரி படித்த தகுதி Tally-ல் அனுபவமுள்ளவர்கள். திறமைக்கேற்ப நல்ல சம்பளம்.",
-    "phone": "90470 27777",
+    "regionalText": "ஆண்கள் மற்றும் பெண்கள் தேவை. கேஷியர், பில்லிங் மெஷின், சிஸ்டம் ஆபரேட்டர், சூப்பர்வைசர், சர்வீஸ், பார்சல் போன்ற வேலைகளுக்கு ஆட்கள் தேவை.",
+    "phone": "99767 89337",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_02",
+    "id": "20260614_row1_03",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Industrial Sofa Maker & Carpenter Wanted",
+    "company": "Monofurn Furniture Factory",
+    "details": {
+      "Position": "Sofa Maker / Carpenter / Helper",
+      "Age Limit": "Under 40 Years",
+      "Facility": "Accommodation available for outstation candidates"
+    },
+    "regionalText": "சோபா மேக்கர், கார்பெண்டர் ஆட்கள் தேவை. தங்குமிடம் இலவசம். வயது வரம்பு 40-க்குள்.",
+    "phone": "90432 34474",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row1_04",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Textile Showroom Helpers & Polishers",
+    "company": "Industrial Hardwares & Logistics",
+    "details": {
+      "Role": "Polishing & Helpers / Sales Executives",
+      "Salary": "Rs. 18,000 + Allowances",
+      "Holiday": "Sunday Holiday"
+    },
+    "regionalText": "ஆட்கள் தேவை. கோவை டவுன்ஹால் மளிகை கடைக்கு மெருகுவேற்றுபவர் + பில்லிங் + சேல்ஸ் வேலைக்கு ஆட்கள் தேவை.",
+    "phone": "89030 81600",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row1_05",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Showroom Sales Executive - Male & Female",
+    "company": "Coimbatore City Retail Center",
+    "details": {
+      "Role": "Floor Sales Executive & Delivery Counter",
+      "Benefits": "Good Salary + Performance Incentives"
+    },
+    "regionalText": "ஆட்கள் தேவை: கோவை டவுன்ஹால் பகுதியில் பர்னிச்சர் ஷோரூமிற்கு சேல்ஸ் (ஆண்/பெண்) ஆட்கள் தேவை.",
+    "phone": "99441 51094",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row2_01",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Experience Air Dryer or Chiller Mechanic",
+    "company": "Industrial Climate Systems",
+    "details": {
+      "Role": "Chiller and Compressed Air Dryer Field Technician",
+      "Location": "Chennai Base (Operations around Tamil Nadu)"
+    },
+    "regionalText": "WANTED: Experience Air Dryer or Chiller Mechanic. Place Chennai.",
+    "phone": "99522 87379",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row2_02",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Urgent Technical Factory Openings",
+    "company": "Engineering Works Ltd",
+    "details": {
+      "Roles": "Heavy Duty Turners (Salary 300/Shift), Horizontal Boring Operators (Salary 300/Shift)",
+      "Security": "Security Guards (Salary Rs. 13,500/Month)"
+    },
+    "regionalText": "WANTED: Heavy Duty Turners, Horizontal Boring Operators, Security Guards. M.S.K.Engg, SIDCO, CBE-21.",
+    "phone": "99449 72283",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row2_03",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Medical & Hospital Staff Openings",
+    "company": "Trinity Hospital & Eye Care, Coimbatore",
+    "details": {
+      "Openings": "Consultant Ophthalmologist, Optometrist, Patient Counsellors, Bio Medical Engineer, Receptionist, PRO, Camp Co-Ordinators"
+    },
+    "regionalText": "WANTED Hospital Staff. Trinity Hospital, Coimbatore. Contact via Whatsapp.",
+    "phone": "79943 39911",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row2_04",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Receptionist for Dental Clinic",
+    "company": "Peelamedu Dental Clinic Group",
+    "details": {
+      "Profile": "Female candidates preferred",
+      "Location": "Peelamedu Area, Coimbatore"
+    },
+    "regionalText": "WANTED: Receptionist for Dental Clinic. Female candidates in Peelamedu Area.",
+    "phone": "94432 43070",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row3_01",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Industrial Field Sales Manager",
+    "company": "Hygiene Care Products Company",
+    "details": {
+      "Requirements": "Established relationships with Hospitality, Healthcare, Educational Institutions & Industries",
+      "Age Limit": "30 to 40 Years",
+      "Salary Package": "Rs. 4.20 Lacs to Rs. 6 Lacs PA + Sales Incentives",
+      "Travel": "Willing to travel across Tamilnadu & Kerala"
+    },
+    "regionalText": "நேர்முகத் தேர்வு: 15-06-2026 முதல் 17-06-2026 வரை. தகுதியான நபர்கள் தொடர்புகொள்ளவும்.",
+    "phone": "95004 75553",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row3_02",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Banking Field Officers",
+    "company": "Local Banking Sector Recruitment",
+    "details": {
+      "Openings": "Multiple Vacancies Available",
+      "Salary Structure": "Salary up to 25,000 + Incentives",
+      "Qualification": "10th, +2, ITI, Diploma, or Any Degree",
+      "Assets Required": "Must possess a Two-Wheeler"
+    },
+    "regionalText": "ஆண்கள் தேவை. வயது வரம்பு இல்லை. டூவிலர் கட்டாயம் வைத்திருக்க வேண்டும்.",
+    "phone": "81444 41885",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row3_03",
     "datePosted": "2026-06-14",
     "category": "property",
-    "title": "House For Sale @ Vedapatti",
-    "company": "Perumal Naidu Layout",
+    "title": "Commercial Site For Sale Near Brookefields",
+    "company": "Brookefields Area Commercial Premium",
     "details": {
-      "Plot Area": "2440 sq.ft.",
-      "Building Area": "1500 sq.ft.",
-      "Pricing": "Rs. 99 Lakhs (Negotiable)",
-      "Status": "Ready to Occupy"
+      "Location": "Dr. Krishnasamy Mudaliyar Road, Coimbatore-2",
+      "Land Area": "22 Cents (approx)",
+      "Site Frontage": "65 feet x 155 feet",
+      "Suitability": "Ideal for multi-story commercial showrooms or corporate offices"
     },
-    "regionalText": "விற்பனைக்கு (புதியது) வீடு விற்பனைக்கு - வீடபட்டி.",
-    "phone": "87788 99100",
+    "regionalText": "வணிக ரீதியான இடம் விற்பனைக்கு - ப்ரூக்ஃபீல்ட்ஸ் மால் அருகில், கோவை.",
+    "phone": "82481 99919",
     "actionUrl": "#"
   },
   {
-    "id": "20260613_01",
-    "datePosted": "2026-06-13",
+    "id": "20260614_row3_04",
+    "datePosted": "2026-06-14",
     "category": "property",
-    "title": "Commercial Space For Rent",
-    "company": "Central Excise Colony Space",
+    "title": "Commercial Building For Rent - 1100 Sq.Ft",
+    "company": "Bharathi Park Road Rental",
     "details": {
-      "Space Size": "750 sq.ft. Ground Floor",
-      "Location": "P.N.Pudur, Coimbatore",
-      "Suitable For": "Office, Super Market, or Clinic",
-      "Proximity": "Behind Bimetal Bearing Company"
+      "Space Size": "1100 Sq.Ft (2 Floors Available)",
+      "Location": "Bharathi Park Road, Coimbatore",
+      "Facing": "North Facing Layout",
+      "Amenities": "Lift, Generator, and dedicated Car Parking spaces provided"
     },
-    "regionalText": "வணிகக் கட்டிடம் வாடகைக்கு - பி.என்.புதூர், கோவை.",
-    "phone": "86677 59347",
+    "regionalText": "கமர்ஷியல் பில்டிங் வாடகைக்கு - பாரதி பார்க் ரோடு, கோவை. லிப்ட் மற்றும் பார்க்கிங் வசதி உண்டு.",
+    "phone": "88389 31632",
     "actionUrl": "#"
   },
   {
-    "id": "20260612_01",
-    "datePosted": "2026-06-12",
+    "id": "20260614_row4_01",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Wanted Delivery Boys & Drivers",
+    "company": "Santhana Lakshmi Metals",
+    "details": {
+      "Positions": "Tata Ace, Bolero Pick-Up, Automatic Car Drivers",
+      "License Requirements": "Valid Commercial Driving License with Badge endorsement",
+      "Location": "Coimbatore City Operations"
+    },
+    "regionalText": "ஆட்கள் தேவை - டிரைவர். டாட்டா ஏஸ், பொலிரோ மற்றும் கார் ஓட்ட அனுபவம் உள்ளவர்கள் தேவை.",
+    "phone": "98438 52533",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_row4_02",
+    "datePosted": "2026-06-14",
     "category": "services",
-    "title": "Scientific Borewells & Water Divining",
-    "company": "Sri Karthik Borewells",
+    "title": "Fire Extinguishers Supply & Refilling",
+    "company": "Muthu Fire Engineering Company",
     "details": {
-      "Drilling Sizes": "4½\", 4¾\", 5\", 6½\"",
-      "Consultation": "Scientific Water Diviner / Geologist Advice available",
-      "Service Area": "Coimbatore and surrounding districts"
+      "Services": "Fire Extinguishers supply, recharging, and safety training",
+      "Location": "Raja Street & Townhall Area, Coimbatore"
     },
-    "regionalText": "ஸ்ரீ கார்த்திக் போர்வெல்ஸ் - நீரூற்று நிபுணர் மற்றும் விஞ்ஞான ஆலோசகர்.",
-    "phone": "88070 66957",
+    "regionalText": "முத்து பயர் இன்ஜினியரிங் - பயர் எக்ஸ்டிங்குயிஷர் ரீஃபில்லிங் மற்றும் புதிய சப்ளை.",
+    "phone": "98427 12606",
     "actionUrl": "#"
   },
   {
-    "id": "20260611_01",
-    "datePosted": "2026-06-11",
-    "category": "health",
-    "title": "Care Health Insurance Plan",
-    "company": "Care Health Insurance Group",
+    "id": "20260614_row4_03",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Wanted CNC Machine Workers",
+    "company": "Navodha Industries",
     "details": {
-      "Cashless Facility": "100% Cashless Treatment",
-      "Premium Lock": "Premium remains locked until a claim arises",
-      "Pre-Existing Cover": "Pre-Existing Medical Conditions covered after 30 days",
-      "Bonus Benefit": "1st Yr Base Premium will be paid back after 5 consecutive claim-free yrs"
+      "Role": "CNC Operators, Helpers, Setters",
+      "Location": "Thanneer Pandal, Peelamedu, Coimbatore"
     },
-    "regionalText": "100% Cashless Treatment. Pre-Existing Medical Conditions will be covered after 30 days.",
-    "phone": "99626 64603",
+    "regionalText": "சிஎன்சி மெஷினில் வேலை பார்க்க ஆட்கள் தேவை (ஆண்/பெண்). தங்குமிடம் வசதி உண்டு.",
+    "phone": "94431 74471",
     "actionUrl": "#"
   }
 ]
