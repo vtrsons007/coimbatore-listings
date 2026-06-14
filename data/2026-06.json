@@ -1,236 +1,525 @@
+Here is the fully extended and exhaustive dataset containing the readable advertisements from the newspaper page in your second image (image_2.png).
+This dataset has been fully extracted and structured into a single unified JSON array so you can drop it directly into your data/2026-06.json archive file.
+```json
 [
   {
-    "id": "20260614_row1_01",
+    "id": "20260614_col1_01",
     "datePosted": "2026-06-14",
-    "category": "services",
-    "title": "Atchaya Gold Company - Cash for Gold",
-    "company": "Atchaya Gold Company",
+    "category": "jobs",
+    "title": "Tata Ace & Bolero Drivers Wanted",
+    "company": "Santhana Lakshmi Metals",
     "details": {
-      "Service": "Instant cash for gold and silver ornaments",
-      "Features": "Highest market price paid instantly"
+      "Vehicles": "TATA ACE, BOLERO PICK-UP, AUTOMATIC CAR",
+      "License Requirement": "Valid Commercial License with Badge endorsement",
+      "Salary / perks": "Attractive salary options provided"
     },
-    "regionalText": "தங்கம் வெள்ளி விற்க - அக்ஷயா கோல்ட் கம்பெனி. மார்க்கெட் விலைக்கு தங்கம் வெள்ளி விற்க.",
-    "phone": "88830 31000",
+    "regionalText": "ஆட்கள் தேவை - டிரைவர். டாட்டா ஏஸ், பொலிரோ மற்றும் ஆட்டோமேட்டிக் கார் ஓட்ட அனுபவம் உள்ள பேட்ஜ் ஓட்டுநர்கள் தேவை.",
+    "phone": "98438 52533",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row1_02",
+    "id": "20260614_col1_02",
     "datePosted": "2026-06-14",
     "category": "jobs",
-    "title": "Urgent Openings for Female Office Assistants",
-    "company": "Santhana Lakshmi Metals Recruitments",
-    "details": {
-      "Role": "Billing Machine Cashier, Accountant, System Staff, Parcel Counter",
-      "Salary": "Rs. 11,000 - Rs. 13,000",
-      "Location": "Coimbatore City Shop Floor"
-    },
-    "regionalText": "ஆண்கள் மற்றும் பெண்கள் தேவை. கேஷியர், பில்லிங் மெஷின், சிஸ்டம் ஆபரேட்டர், சூப்பர்வைசர், சர்வீஸ், பார்சல் போன்ற வேலைகளுக்கு ஆட்கள் தேவை.",
-    "phone": "99767 89337",
-    "actionUrl": "#"
-  },
-  {
-    "id": "20260614_row1_03",
-    "datePosted": "2026-06-14",
-    "category": "jobs",
-    "title": "Industrial Sofa Maker & Carpenter Wanted",
-    "company": "Monofurn Furniture Factory",
-    "details": {
-      "Position": "Sofa Maker / Carpenter / Helper",
-      "Age Limit": "Under 40 Years",
-      "Facility": "Accommodation available for outstation candidates"
-    },
-    "regionalText": "சோபா மேக்கர், கார்பெண்டர் ஆட்கள் தேவை. தங்குமிடம் இலவசம். வயது வரம்பு 40-க்குள்.",
-    "phone": "90432 34474",
-    "actionUrl": "#"
-  },
-  {
-    "id": "20260614_row1_04",
-    "datePosted": "2026-06-14",
-    "category": "jobs",
-    "title": "Textile Showroom Helpers & Polishers",
-    "company": "Industrial Hardwares & Logistics",
-    "details": {
-      "Role": "Polishing & Helpers / Sales Executives",
-      "Salary": "Rs. 18,000 + Allowances",
-      "Holiday": "Sunday Holiday"
-    },
-    "regionalText": "ஆட்கள் தேவை. கோவை டவுன்ஹால் மளிகை கடைக்கு மெருகுவேற்றுபவர் + பில்லிங் + சேல்ஸ் வேலைக்கு ஆட்கள் தேவை.",
-    "phone": "89030 81600",
-    "actionUrl": "#"
-  },
-  {
-    "id": "20260614_row1_05",
-    "datePosted": "2026-06-14",
-    "category": "jobs",
-    "title": "Showroom Sales Executive - Male & Female",
-    "company": "Coimbatore City Retail Center",
-    "details": {
-      "Role": "Floor Sales Executive & Delivery Counter",
-      "Benefits": "Good Salary + Performance Incentives"
-    },
-    "regionalText": "ஆட்கள் தேவை: கோவை டவுன்ஹால் பகுதியில் பர்னிச்சர் ஷோரூமிற்கு சேல்ஸ் (ஆண்/பெண்) ஆட்கள் தேவை.",
-    "phone": "99441 51094",
-    "actionUrl": "#"
-  },
-  {
-    "id": "20260614_row2_01",
-    "datePosted": "2026-06-14",
-    "category": "jobs",
-    "title": "Experience Air Dryer or Chiller Mechanic",
+    "title": "Air Dryer & Chiller Mechanic",
     "company": "Industrial Climate Systems",
     "details": {
-      "Role": "Chiller and Compressed Air Dryer Field Technician",
-      "Location": "Chennai Base (Operations around Tamil Nadu)"
+      "Experience": "Required in Industrial Chillers or Air Dryers",
+      "Location Placement": "Chennai Base Operations"
     },
     "regionalText": "WANTED: Experience Air Dryer or Chiller Mechanic. Place Chennai.",
     "phone": "99522 87379",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row2_02",
+    "id": "20260614_col1_03",
     "datePosted": "2026-06-14",
     "category": "jobs",
-    "title": "Urgent Technical Factory Openings",
-    "company": "Engineering Works Ltd",
+    "title": "Heavy Duty Turners & Boring Operators",
+    "company": "M.S.K. Engineering Works",
     "details": {
-      "Roles": "Heavy Duty Turners (Salary 300/Shift), Horizontal Boring Operators (Salary 300/Shift)",
-      "Security": "Security Guards (Salary Rs. 13,500/Month)"
+      "Positions": "Heavy Duty Turners, Horizontal Boring Operators, Security Guards",
+      "Wages": "Rs. 800/Shift for operators, Rs. 13,500/Month for Guards",
+      "Location": "SIDCO, CBE-21"
     },
-    "regionalText": "WANTED: Heavy Duty Turners, Horizontal Boring Operators, Security Guards. M.S.K.Engg, SIDCO, CBE-21.",
+    "regionalText": "WANTED: HEAVY DUTY TURNERS, HORIZONTAL BORING OPERATORS, SECURITY GUARDS. M.S.K.Engg, SIDCO, Coimbatore.",
     "phone": "99449 72283",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row2_03",
-    "datePosted": "2026-06-14",
-    "category": "jobs",
-    "title": "Medical & Hospital Staff Openings",
-    "company": "Trinity Hospital & Eye Care, Coimbatore",
-    "details": {
-      "Openings": "Consultant Ophthalmologist, Optometrist, Patient Counsellors, Bio Medical Engineer, Receptionist, PRO, Camp Co-Ordinators"
-    },
-    "regionalText": "WANTED Hospital Staff. Trinity Hospital, Coimbatore. Contact via Whatsapp.",
-    "phone": "79943 39911",
-    "actionUrl": "#"
-  },
-  {
-    "id": "20260614_row2_04",
+    "id": "20260614_col1_04",
     "datePosted": "2026-06-14",
     "category": "jobs",
     "title": "Receptionist for Dental Clinic",
     "company": "Peelamedu Dental Clinic Group",
     "details": {
-      "Profile": "Female candidates preferred",
-      "Location": "Peelamedu Area, Coimbatore"
+      "Candidate Type": "Female candidates only",
+      "Area Location": "Peelamedu Area, Coimbatore"
     },
-    "regionalText": "WANTED: Receptionist for Dental Clinic. Female candidates in Peelamedu Area.",
+    "regionalText": "WANTED: RECEPTIONIST FOR DENTAL CLINIC. Female candidates in Peelamedu Area.",
     "phone": "94432 43070",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row3_01",
+    "id": "20260614_col1_05",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Petrol Bunk Attendants Wanted",
+    "company": "Coimbatore City Fuel Station",
+    "details": {
+      "Requirements": "Male or Female workers for fuel dispensing lines",
+      "Age Limit": "Under 40 preferred"
+    },
+    "regionalText": "கோவை ஹோமம் காலேஜ் அருகில் உள்ள பெட்ரோல் பங்க்கிற்கு ஆட்கள் தேவை (ஆண் / பெண்).",
+    "phone": "91 63748 11104",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col1_06",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Wanted Delivery Boy with License",
+    "company": "Plenum Info Systems",
+    "details": {
+      "Requirements": "Must possess a valid Two-Wheeler driving license",
+      "Location": "Singanallur, Coimbatore"
+    },
+    "regionalText": "WANTED DELIVERY BOY with Two Wheeler License. Plenum info Sys, Singanallur.",
+    "phone": "968 87 48 510",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col1_07",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Civil Supervisor Openings",
+    "company": "Local Infrastructures & Builders",
+    "details": {
+      "Qualification": "Diploma or BE in Civil Engineering",
+      "Experience": "Minimum 4 to 10 years experience required"
+    },
+    "regionalText": "CIVIL SUPERVISOR DIPLOMA/BE. அனுபவம் 4 முதல் 10 வருடம் இருக்க வேண்டும்.",
+    "phone": "98430 18165",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col1_08",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Accountant & Graphic Designer Wanted",
+    "company": "Coimbatore Creative Media Agency",
+    "details": {
+      "Positions": "Accountant, Graphic Designer, Marketing Executive",
+      "Requirements": "Relevant tool skills & experience preferred"
+    },
+    "regionalText": "ACCOUNTANT, GRAPHIC DESIGNER, MARKETING EXECUTIVE வேலைக்கு ஆட்கள் தேவை.",
+    "phone": "90034 41337",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col1_09",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Hospital Nursing Staff Recruitment",
+    "company": "Coimbatore Prominent Multi-Specialty Hospital",
+    "details": {
+      "Positions Available": "Nursing Supervisor, Staff Nurses, Security Guards, Drivers",
+      "Facility": "Food and accommodation options available"
+    },
+    "regionalText": "ஆட்கள் தேவை: பிரசித்தி பெற்ற மருத்துவமனைக்கு நர்சிங் சூப்பர்வைசர், ஸ்டாப் நர்ஸ், செக்யூரிட்டி, டிரைவர் தேவை.",
+    "phone": "944 300 4005",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col2_01",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Eye Care Hospital Openings",
+    "company": "Trinity Hospital & Eye Care, Coimbatore",
+    "details": {
+      "Positions": "Consultant Ophthalmologist, Optometrist, Patient Counsellors, Bio-Medical Engineer, Receptionist, PRO, Camp Co-Ordinators"
+    },
+    "regionalText": "WANTED Medical Professionals for Trinity Hospital Eye Care Division in Coimbatore.",
+    "phone": "79943 39911",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col2_02",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Driver Wanted for Pollachi Route",
+    "company": "Local Transport Logistics",
+    "details": {
+      "Route Experience": "Coimbatore to Pollachi tracking preferred",
+      "Experience": "Minimum 2 years commercial heavy/light vehicles tracking"
+    },
+    "regionalText": "டிரைவர் தேவை: கோவை பொள்ளாச்சி பகுதியில் காரோட்ட 2 வருட அனுபவம் உள்ள டிரைவர் தேவை.",
+    "phone": "98430 96629",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col2_03",
     "datePosted": "2026-06-14",
     "category": "jobs",
     "title": "Industrial Field Sales Manager",
-    "company": "Hygiene Care Products Company",
+    "company": "Hygiene Care Products Co.",
     "details": {
-      "Requirements": "Established relationships with Hospitality, Healthcare, Educational Institutions & Industries",
-      "Age Limit": "30 to 40 Years",
-      "Salary Package": "Rs. 4.20 Lacs to Rs. 6 Lacs PA + Sales Incentives",
-      "Travel": "Willing to travel across Tamilnadu & Kerala"
+      "Requirements": "Established ties with Hospitality, Healthcare, and Education sectors",
+      "Salary": "Rs. 4.20 Lacs to Rs. 6 Lacs PA + Incentives",
+      "Travel": "Across Tamilnadu & Kerala"
     },
-    "regionalText": "நேர்முகத் தேர்வு: 15-06-2026 முதல் 17-06-2026 வரை. தகுதியான நபர்கள் தொடர்புகொள்ளவும்.",
+    "regionalText": "Skylab Hygiene India Pvt Ltd. ஆட்கள் தேவை - சேல்ஸ் மேனேஜர்.",
     "phone": "95004 75553",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row3_02",
+    "id": "20260614_col2_04",
     "datePosted": "2026-06-14",
     "category": "jobs",
-    "title": "Banking Field Officers",
-    "company": "Local Banking Sector Recruitment",
+    "title": "Wholesale Grocery Helpers & Packers",
+    "company": "Townhall Commercial Stores",
     "details": {
-      "Openings": "Multiple Vacancies Available",
-      "Salary Structure": "Salary up to 25,000 + Incentives",
-      "Qualification": "10th, +2, ITI, Diploma, or Any Degree",
-      "Assets Required": "Must possess a Two-Wheeler"
+      "Roles": "Packing Assistants & Billing Helpers",
+      "Hours": "Full time day shifts",
+      "Location": "Townhall Area, Coimbatore"
     },
-    "regionalText": "ஆண்கள் தேவை. வயது வரம்பு இல்லை. டூவிலர் கட்டாயம் வைத்திருக்க வேண்டும்.",
-    "phone": "81444 41885",
+    "regionalText": "கோவை டவுன்ஹால் மளிகை கடைக்கு பேக்கிங் மற்றும் உதவியாளர்கள் வேலைக்கு தேவை.",
+    "phone": "99946 66663",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row3_03",
+    "id": "20260614_col2_05",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Wanted Institutional Cook",
+    "company": "Local Catering Group",
+    "details": {
+      "Profile": "Male or Female traditional cooks",
+      "Age Limit": "Under 40 Years old"
+    },
+    "regionalText": "சமையல் வேலைக்கு ஆட்கள் தேவை (ஆண்/பெண்). வயது 40-க்குள் இருக்க வேண்டும்.",
+    "phone": "99949 77265",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col2_06",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Wanted Office Accountant",
+    "company": "Areena Corporate Services LLP",
+    "details": {
+      "Requirements": "B.Com graduates with clear Tally Prime operations knowledge",
+      "Experience": "2 to 3 Years industrial tracking preferred"
+    },
+    "regionalText": "WANTED ACCOUNTANT: B.Com graduates having knowledge in TALLY PRIME with 2/3 years experience.",
+    "phone": "73583 95058",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col2_07",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Accountant Cum Office Assistant",
+    "company": "Mayur Gas Service",
+    "details": {
+      "Qualification": "10th, +2, or Any Degree with Tally proficiency",
+      "Gender": "Male or Female applicants welcome"
+    },
+    "regionalText": "கணக்காளர் மற்றும் ஆபீஸ் அசிஸ்டண்ட் தேவை. தகுதி: 10, +2, டிகிரி படித்த Tally தெரிந்தவர்கள்.",
+    "phone": "90470 27777",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col2_08",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Field Sales Representative Wanted",
+    "company": "Surgeons Micro Barrier",
+    "details": {
+      "Wages": "Salary 22,000 + Allowances",
+      "Asset": "Must own a Two-Wheeler vehicle"
+    },
+    "regionalText": "WANTED REPRESENTATIVE: Coimbatore Area. Salary 22,000 + Allowance. Must have two wheeler.",
+    "phone": "90252 00096",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col3_01",
+    "datePosted": "2026-06-14",
+    "category": "services",
+    "title": "Cash For Gold Services",
+    "company": "Atchaya Gold Company",
+    "details": {
+      "Service": "Instant cash for gold & silver market holdings",
+      "Transparency": "Direct computer testing"
+    },
+    "regionalText": "தங்கம் வெள்ளி விற்க - அக்ஷயா கோல்ட் கம்பெனி. மார்க்கெட் விலைக்கு தங்கம் வெள்ளி விற்க.",
+    "phone": "88830 31000",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col3_02",
+    "datePosted": "2026-06-14",
+    "category": "services",
+    "title": "Best Price Cash For Gold",
+    "company": "Best Money Gold Outlets",
+    "details": {
+      "Service": "Pledge relief and immediate gold purchasing valuations"
+    },
+    "regionalText": "மார்க்கெட் விலைக்கு தங்கம் வெள்ளி விற்க - பெஸ்ட் மணி கோல்டு.",
+    "phone": "97502 97502",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col3_03",
+    "datePosted": "2026-06-14",
+    "category": "health",
+    "title": "Care Health Insurance Protection",
+    "company": "Care Health Insurance Network",
+    "details": {
+      "Features": "100% Cashless treatments, Pre-existing illness covered after 30 days"
+    },
+    "regionalText": "Care Health Insurance: 100% Cashless Treatment. Claims tracking metrics apply.",
+    "phone": "99626 64603",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col3_04",
+    "datePosted": "2026-06-14",
+    "category": "services",
+    "title": "Amul Cattle Feed Dealership",
+    "company": "Sunmag International Distributors",
+    "details": {
+      "Product": "Amul brand specialized high-yield cattle feeds",
+      "Network": "Distributor and dealer spaces open across Tamil Nadu"
+    },
+    "regionalText": "அமுல் மாட்டு தீவனத்தை விநியோகம் செய்ய விநியோகஸ்தர்கள் தேவை. சன்மக் இன்டர்நேஷனல்.",
+    "phone": "94443 77760",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col4_01",
+    "datePosted": "2026-06-14",
+    "category": "services",
+    "title": "Scientific Waterproofing Services",
+    "company": "Local Structural Leakage Advisors",
+    "details": {
+      "Track Record": "23 Years professional service experience",
+      "Coverage": "Hotels, Apartments, Commercial Buildings, Hostels"
+    },
+    "regionalText": "சுவரில் நீர் கசிவு சரி செய்தல் 100% உத்தரவாதம். ஹோட்டல், அப்பார்ட்மெண்ட், ஹாஸ்டல்.",
+    "phone": "82202 21155",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col4_02",
+    "datePosted": "2026-06-14",
+    "category": "services",
+    "title": "Scientific Borewell Solutions",
+    "company": "Sri Karthik Borewells",
+    "details": {
+      "Drill Capacities": "4½\", 4¾\", 5\", 6½\" dimension tube-well operations",
+      "Experts": "Geologist and professional diviner advice layouts"
+    },
+    "regionalText": "ஸ்ரீ கார்த்திக் போர்வெல்ஸ் - நீரூற்று நிபுணர் மற்றும் விஞ்ஞான ஆலோசகர்.",
+    "phone": "88070 66957",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col4_03",
+    "datePosted": "2026-06-14",
+    "category": "services",
+    "title": "IRCTC International Flight Tour",
+    "company": "IRCTC Regional Tourism Office",
+    "details": {
+      "Destination": "Singapore & Malaysia Special Tour Bundle",
+      "Pricing": "Rs. 1,50,200/- per head all inclusive",
+      "Hotel Rating": "3 Star premium luxury arrangements"
+    },
+    "regionalText": "IRCTC சிங்கப்பூர் மற்றும் மலேசியா சிறப்பு விமான சுற்றுலா. கட்டணம்: 1,50,200/-.",
+    "phone": "90031 40655",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col5_01",
     "datePosted": "2026-06-14",
     "category": "property",
-    "title": "Commercial Site For Sale Near Brookefields",
-    "company": "Brookefields Area Commercial Premium",
+    "title": "Brookefields Mall Premium Commercial Site",
+    "company": "Brookefields Vicinity Properties",
     "details": {
       "Location": "Dr. Krishnasamy Mudaliyar Road, Coimbatore-2",
-      "Land Area": "22 Cents (approx)",
-      "Site Frontage": "65 feet x 155 feet",
-      "Suitability": "Ideal for multi-story commercial showrooms or corporate offices"
+      "Dimensions": "22 Cents land with 65ft frontage x 155ft depth line"
     },
-    "regionalText": "வணிக ரீதியான இடம் விற்பனைக்கு - ப்ரூக்ஃபீல்ட்ஸ் மால் அருகில், கோவை.",
+    "regionalText": "COMMERCIAL SITE FOR SALE, NEXT TO BROOKEFIELDS MALL. On main road, measuring about 22 Cents.",
     "phone": "82481 99919",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row3_04",
+    "id": "20260614_col5_02",
     "datePosted": "2026-06-14",
     "category": "property",
-    "title": "Commercial Building For Rent - 1100 Sq.Ft",
-    "company": "Bharathi Park Road Rental",
+    "title": "Brand New 3BHK House For Sale",
+    "company": "Sakthi Nagar Residential Layouts",
     "details": {
-      "Space Size": "1100 Sq.Ft (2 Floors Available)",
-      "Location": "Bharathi Park Road, Coimbatore",
-      "Facing": "North Facing Layout",
-      "Amenities": "Lift, Generator, and dedicated Car Parking spaces provided"
+      "Structure": "3 BHK fully furnished luxury residence setup",
+      "Land Extent": "5 Cents vacant land attached near KPR College Road"
     },
-    "regionalText": "கமர்ஷியல் பில்டிங் வாடகைக்கு - பாரதி பார்க் ரோடு, கோவை. லிப்ட் மற்றும் பார்க்கிங் வசதி உண்டு.",
+    "regionalText": "FOR SALE: 3 BHK fully furnished Apartment / House at Sakthi Nagar, Ponnurangam Road.",
+    "phone": "82203 33756",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col5_03",
+    "datePosted": "2026-06-14",
+    "category": "property",
+    "title": "House For Sale @ Vedapatti",
+    "company": "Perumal Naidu Layout Agency",
+    "details": {
+      "Plot Dimension": "2440 sq.ft. total area",
+      "Built Structure": "1500 sq.ft. clear building concrete layout",
+      "Price": "Rs. 99 Lakhs (Negotiable pricing matrix)"
+    },
+    "regionalText": "வீடு விற்பனைக்கு (புதியது) - வீடபட்டி, பெருமாள் நாயுடு லேஅவுட்.",
+    "phone": "87788 99100",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col5_04",
+    "datePosted": "2026-06-14",
+    "category": "property",
+    "title": "Prime Investment Land Coimbatore",
+    "company": "Kamadenu Nagar Properties Ltd",
+    "details": {
+      "Location": "Avarampalayam, Coimbatore-641006",
+      "Extents": "17 Cents land suitable for commercial complexes or residential plots"
+    },
+    "regionalText": "LAND FOR SALE: Kamadenu Nagar, Avarampalayam, Coimbatore. Land Area: 17 Cents.",
+    "phone": "94423 30776",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col5_05",
+    "datePosted": "2026-06-14",
+    "category": "property",
+    "title": "Commercial Property For Rent",
+    "company": "Oppanakara Street Commercial Space",
+    "details": {
+      "Space Extent": "3000 Sq.Ft total coverage (1st & 2nd Floors)",
+      "Suitability": "Godown, Showroom, Office, or Textile storage units"
+    },
+    "regionalText": "COMMERCIAL PROPERTY FOR RENT: Coimbatore Near Oppanakara Street / Mill Road. 3000 Sq.ft.",
+    "phone": "98430 35108",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_col6_01",
+    "datePosted": "2026-06-14",
+    "category": "property",
+    "title": "Commercial Showroom Space Saibaba Colony",
+    "company": "Saibaba Colony Commercial Hubs",
+    "details": {
+      "Floor Metrics": "1100 Sq.Ft x 2 Floors layout options",
+      "Amenities": "Lift, backup generator system, and car parking yard"
+    },
+    "regionalText": "கமர்ஷியல் பில்டிங் வாடகைக்கு - சாய்பாபா காலனி, பாரதி பார்க் ரோடு. 1100 Sqft x 2 மாடிகள்.",
     "phone": "88389 31632",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row4_01",
+    "id": "20260614_col6_02",
     "datePosted": "2026-06-14",
-    "category": "jobs",
-    "title": "Wanted Delivery Boys & Drivers",
-    "company": "Santhana Lakshmi Metals",
+    "category": "property",
+    "title": "Raja Street Commercial Rental Shop",
+    "company": "Raja Street Business Market Space",
     "details": {
-      "Positions": "Tata Ace, Bolero Pick-Up, Automatic Car Drivers",
-      "License Requirements": "Valid Commercial Driving License with Badge endorsement",
-      "Location": "Coimbatore City Operations"
+      "Size": "2200 sq.ft premium area floors",
+      "Target Business": "Wholesale textiles, jewelry backups, or office structures"
     },
-    "regionalText": "ஆட்கள் தேவை - டிரைவர். டாட்டா ஏஸ், பொலிரோ மற்றும் கார் ஓட்ட அனுபவம் உள்ளவர்கள் தேவை.",
-    "phone": "98438 52533",
+    "regionalText": "கமர்ஷியல் இடம் வாடகைக்கு - கோவை ராஜா வீதி. 2200 சதுர அடி.",
+    "phone": "81481 13931",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row4_02",
+    "id": "20260614_col6_03",
     "datePosted": "2026-06-14",
-    "category": "services",
-    "title": "Fire Extinguishers Supply & Refilling",
-    "company": "Muthu Fire Engineering Company",
+    "category": "jobs",
+    "title": "Banking Field Executives",
+    "company": "Local Retail Banking Operations",
     "details": {
-      "Services": "Fire Extinguishers supply, recharging, and safety training",
-      "Location": "Raja Street & Townhall Area, Coimbatore"
+      "Compensation": "Salary up to 25,000 + Incentives metrics",
+      "Qualification": "10th, +2, ITI, Diploma, or Any Basic Degree"
     },
-    "regionalText": "முத்து பயர் இன்ஜினியரிங் - பயர் எக்ஸ்டிங்குயிஷர் ரீஃபில்லிங் மற்றும் புதிய சப்ளை.",
-    "phone": "98427 12606",
+    "regionalText": "WANTED BANKING FIELD: Salary upto 25,000 + Incentives. Location: Coimbatore, Tirupur.",
+    "phone": "81444 41885",
     "actionUrl": "#"
   },
   {
-    "id": "20260614_row4_03",
+    "id": "20260614_right_01",
     "datePosted": "2026-06-14",
     "category": "jobs",
-    "title": "Wanted CNC Machine Workers",
-    "company": "Navodha Industries",
+    "title": "Showroom Billing Machine Cashier & Help",
+    "company": "Santhana Lakshmi Textiles Shop Floor",
     "details": {
-      "Role": "CNC Operators, Helpers, Setters",
-      "Location": "Thanneer Pandal, Peelamedu, Coimbatore"
+      "Roles": "Billing Machine Operators (Female), Delivery Counter Helpers (Male)",
+      "Age Bracket": "Under 40 preferred"
     },
-    "regionalText": "சிஎன்சி மெஷினில் வேலை பார்க்க ஆட்கள் தேவை (ஆண்/பெண்). தங்குமிடம் வசதி உண்டு.",
+    "regionalText": "ஆட்கள் தேவை: பில்லிங் மெஷின் கேஷியர் (பெண்கள்), ஹெல்பர், பேக்கிங் செய்ய ஆட்கள் தேவை.",
+    "phone": "94446 64234",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_right_02",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Sofa Maker & Furniture Carpenter",
+    "company": "Monofurn Production Factory",
+    "details": {
+      "Skill Profile": "Experienced structural sofa frame makers and wood carpenters",
+      "Facility": "Free institutional bachelor accommodation provided"
+    },
+    "regionalText": "ஆட்கள் தேவை: சோபா மேக்கர், கார்பெண்டர் மற்றும் ஹெல்பர் தேவை. தங்குமிடம் இலவசம்.",
+    "phone": "90432 34474",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_right_03",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Industrial Hardwares Polishers & Helpers",
+    "company": "Industrial Hardwares & Distribution Unit",
+    "details": {
+      "Roles": "Metal polishers and inventory processing helpers",
+      "Wages": "Salary Rs. 18,000 baseline tracking"
+    },
+    "regionalText": "ஆட்கள் தேவை: மெருகுவேற்றுபவர் மற்றும் ஹெல்பர் வேலைக்கு தேவை. சம்பளம்: 18,000.",
+    "phone": "89030 81600",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_right_04",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Furniture Showroom Sales Executive",
+    "company": "Townhall Premium Furniture Mart",
+    "details": {
+      "Profile": "Male or Female showroom sales counter executives",
+      "Experience": "Retail or customer handling experience preferred"
+    },
+    "regionalText": "பர்னிச்சர் ஷோரூமிற்கு சேல்ஸ் வேலைக்கு ஆட்கள் தேவை (ஆண் / பெண்). கோவை டவுன்ஹால்.",
+    "phone": "99441 51094",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_right_05",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "CNC Operator & Factory Guard Openings",
+    "company": "Wilson Metal Mart & Navodha Engineering",
+    "details": {
+      "Positions": "CNC Operators, Lathe Turners, Factory Security Guards",
+      "Hours": "Day / Night roster shifts apply"
+    },
+    "regionalText": "CNC மெஷினில் வேலை பார்க்க ஆட்கள் தேவை மற்றும் செக்யூரிட்டி கார்டு தேவை. தங்குமிடம் உண்டு.",
     "phone": "94431 74471",
     "actionUrl": "#"
   }
