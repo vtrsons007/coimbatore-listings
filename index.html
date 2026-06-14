@@ -106,11 +106,19 @@
             flex-direction: column;
             overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s;
+            scroll-margin-top: 30px; /* Smooth scrolling target buffer */
         }
         .card:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
         }
+        
+        /* Highlight shared card when linked directly */
+        .card:target {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px #bfdbfe;
+        }
+
         .card-header { 
             padding: 16px 16px 8px 16px; 
             display: flex; 
@@ -132,11 +140,36 @@
         .badge-services { background: #f0fdf4; color: #16a34a; }
         .badge-health { background: #f3e8ff; color: #7c3aed; }
         
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .posted-date { 
             font-size: 12px; 
             color: var(--text-muted); 
             font-weight: 500; 
         }
+
+        /* Share Button Styling */
+        .btn-share {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-share:hover {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+
         .card-body { 
             padding: 0 16px 16px 16px; 
             flex-grow: 1; 
@@ -208,6 +241,24 @@
             background-color: #1d4ed8;
         }
 
+        /* Toast notification popup style */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #334155;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 9999;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
         @media (max-width: 640px) {
             .filter-bar { flex-direction: column; align-items: stretch; }
             .listings-grid { grid-template-columns: 1fr; }
@@ -223,10 +274,8 @@
 
     <div class="filter-container">
         <div class="filter-bar">
-            <!-- Text Search -->
             <input type="text" id="searchBox" class="filter-input search-input" placeholder="Search keywords...">
             
-            <!-- Category Filter -->
             <select id="categoryFilter" class="filter-input">
                 <option value="">All Categories</option>
                 <option value="jobs">Jobs</option>
@@ -235,10 +284,8 @@
                 <option value="health">Health</option>
             </select>
             
-            <!-- Date Filter within data file -->
             <input type="date" id="dateFilter" class="filter-input" title="Filter by specific day">
 
-            <!-- Month / Archive File Selector -->
             <select id="monthSelector" class="filter-input" style="font-weight: bold; border-color: #cbd5e1;">
                 <option value="2026-06">June 2026</option>
                 <option value="2026-05">May 2026</option>
@@ -250,61 +297,53 @@
     </div>
 
     <main>
-        <div id="listingsGrid" class="listings-grid">
-            <!-- Dynamic Cards Load Content Here -->
-        </div>
+        <div id="listingsGrid" class="listings-grid"></div>
     </main>
+
+    <!-- Small alert placeholder popup if native web share fails -->
+    <div id="shareToast" class="toast">📋 Link copied to clipboard!</div>
 
     <script>
         let allListings = [];
-
-        // 1. Initialize the app or detect current active archive period
-        // Drops default view directly to the current calendar month view
         const currentYearMonth = new Date().toISOString().slice(0, 7); 
         
-        // Ensure our dropdown menu default reflects the actual active year-month calendar context
         const monthSelectorEl = document.getElementById('monthSelector');
         if (Array.from(monthSelectorEl.options).some(option => option.value === currentYearMonth)) {
             monthSelectorEl.value = currentYearMonth;
         }
 
-        // 2. Fetch specific target JSON file bundle
         async function loadListings(yearMonth) {
             const grid = document.getElementById('listingsGrid');
             grid.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:40px; color:#64748b;">Loading listings archive...</p>';
 
             try {
-                // This fetches from subfolder layout paths: data/2026-06.json
                 const response = await fetch(`data/${yearMonth}.json`);
-                
-                if (!response.ok) {
-                    throw new Error(`Data file data/${yearMonth}.json not available yet.`);
-                }
+                if (!response.ok) throw new Error(`File data/${yearMonth}.json not available.`);
                 
                 allListings = await response.json();
                 renderListings(allListings);
+
+                // If a user landed via a shared link anchor, scroll to it smoothly after execution renders
+                if(window.location.hash) {
+                    const targetCard = document.querySelector(window.location.hash);
+                    if(targetCard) setTimeout(() => targetCard.scrollIntoView({ behavior: 'smooth' }), 300);
+                }
             } catch (error) {
                 console.error(error);
-                grid.innerHTML = `
-                    <p style="grid-column: 1/-1; text-align:center; padding:40px; color:#dc2626; font-weight:500;">
-                        Could not load data file for "${yearMonth}". <br>
-                        <span style="font-size:13px; font-weight:normal; color:#64748b;">Please verify that data/${yearMonth}.json exists in your directory folder structure.</span>
-                    </p>`;
+                grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:40px; color:#dc2626;">Missing active data file asset folder for "${yearMonth}".</p>`;
             }
         }
 
-        // 3. Render loaded payload elements to the grid view layout
         function renderListings(listings) {
             const grid = document.getElementById('listingsGrid');
             grid.innerHTML = '';
 
             if (listings.length === 0) {
-                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:40px; color:#64748b;">No matching listings found for chosen filters.</p>';
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:40px; color:#64748b;">No matching listings found.</p>';
                 return;
             }
 
             listings.forEach(item => {
-                // Compile inner specifications text block list layout strings
                 let detailsHTML = '';
                 if (item.details) {
                     for (const [key, value] of Object.entries(item.details)) {
@@ -312,12 +351,23 @@
                     }
                 }
 
+                // Prepare safe single-quote string properties for our sharing injector function parameters
+                const safeTitle = (item.title || '').replace(/'/g, "\\'");
+                const safeCompany = (item.company || '').replace(/'/g, "\\'");
+
                 const card = document.createElement('article');
                 card.className = 'card';
+                card.id = `card-${item.id}`; // Crucial anchor hook target ID
                 card.innerHTML = `
                     <div class="card-header">
                         <span class="badge badge-${item.category}">${item.category}</span>
-                        <span class="posted-date">📅 ${item.datePosted}</span>
+                        <div class="header-right">
+                            <span class="posted-date">📅 ${item.datePosted}</span>
+                            <!-- Clean SVG Node Share Action trigger icon link -->
+                            <button class="btn-share" onclick="shareAd('${item.id}', '${safeTitle}', '${safeCompany}')" title="Share this Listing">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                            </button>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h2 class="card-title">${item.title}</h2>
@@ -334,7 +384,39 @@
             });
         }
 
-        // 4. Combined Filtering engine matching Search, Categories, and Days
+        // 5. Intelligent Web Share API caller architecture setup
+        async function shareAd(id, title, company) {
+            // Build absolute specific hash path linking right to this container item anchor block
+            const shareUrl = `${window.location.origin}${window.location.pathname}#card-${id}`;
+            const shareText = `Check out this listing: "${title}" posted by ${company}. See full info here:`;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: title,
+                        text: shareText,
+                        url: shareUrl
+                    });
+                } catch (err) {
+                    console.log("Native share wrapper system dismissed or faulted.", err);
+                }
+            } else {
+                // Secure clipboard copy fallback if viewed via unsupported traditional desktop browsers
+                try {
+                    await navigator.clipboard.writeText(shareUrl);
+                    showToast();
+                } catch (err) {
+                    alert("Sharing URL: " + shareUrl);
+                }
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('shareToast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
         function filterListings() {
             const searchVal = document.getElementById('searchBox').value.toLowerCase();
             const catVal = document.getElementById('categoryFilter').value;
@@ -346,26 +428,20 @@
                                       (item.regionalText && item.regionalText.toLowerCase().includes(searchVal));
                 const matchesCat = catVal === "" || item.category === catVal;
                 const matchesDate = dateVal === "" || item.datePosted === dateVal;
-
                 return matchesSearch && matchesCat && matchesDate;
             });
-
             renderListings(filtered);
         }
 
-        // Event Interceptors
         document.getElementById('searchBox').addEventListener('input', filterListings);
         document.getElementById('categoryFilter').addEventListener('change', filterListings);
         document.getElementById('dateFilter').addEventListener('change', filterListings);
         
-        // Month drop select target file update triggers
         document.getElementById('monthSelector').addEventListener('change', (e) => {
-            // Reset day input options whenever changing primary datasets
             document.getElementById('dateFilter').value = ''; 
             loadListings(e.target.value);
         });
 
-        // Reset system dashboard filters back to base array settings state
         document.getElementById('clearFilters').addEventListener('click', () => {
             document.getElementById('searchBox').value = '';
             document.getElementById('categoryFilter').value = '';
@@ -373,7 +449,6 @@
             renderListings(allListings);
         });
 
-        // App Kickoff initialization loop sequence
         window.onload = () => {
             loadListings(document.getElementById('monthSelector').value);
         };
