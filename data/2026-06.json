@@ -1,5 +1,4 @@
 [
-  /* --- COLUMN 1: EDUCATION, UTILITIES & LOCAL SERVICES --- */
   {
     "id": "20260614_c1_01",
     "datePosted": "2026-06-14",
@@ -58,8 +57,6 @@
     "phone": "94423 30776",
     "actionUrl": "#"
   },
-
-  /* --- COLUMN 2: REAL ESTATE & COMMERCIAL RENTALS --- */
   {
     "id": "20260614_c2_01",
     "datePosted": "2026-06-14",
@@ -162,8 +159,6 @@
     "phone": "98430 35108",
     "actionUrl": "#"
   },
-
-  /* --- COLUMN 3: BUSINESS HUBS & FIELD WORK --- */
   {
     "id": "20260614_c3_01",
     "datePosted": "2026-06-14",
@@ -250,8 +245,6 @@
     "phone": "99420 90033",
     "actionUrl": "#"
   },
-
-  /* --- COLUMN 4: TECHNICAL SKILLS & MANAGEMENT WORK --- */
   {
     "id": "20260614_c4_01",
     "datePosted": "2026-06-14",
@@ -351,8 +344,6 @@
     "phone": "98427 39449",
     "actionUrl": "#"
   },
-
-  /* --- COLUMN 5: SHOWROOM ROLES, COOKS & PRODUCTION --- */
   {
     "id": "20260614_c5_01",
     "datePosted": "2026-06-14",
