@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Classifieds Portal</title>
+    <style>
+        /* Base Reset & Variables */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --border-color: #e2e8f0;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-site: #f8fafc;
+            --bg-card: #ffffff;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --radius: 12px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-site);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding-bottom: 60px;
+        }
+
+        /* Header Area */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+        header p {
+            font-size: 14px;
+            color: #93c5fd;
+        }
+
+        /* Search & Filter Bar */
+        .filter-container {
+            max-width: 1200px;
+            margin: -20px auto 24px auto;
+            padding: 0 16px;
+        }
+        .filter-bar {
+            background: var(--bg-card);
+            padding: 16px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+        .filter-input {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: white;
+            color: var(--text-main);
+            outline: none;
+        }
+        .filter-input:focus {
+            border-color: var(--primary);
+        }
+        .search-input { 
+            flex: 1; 
+            min-width: 200px; 
+        }
+
+        /* Main Layout Grid */
+        main { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 16px; 
+        }
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card Component Styles */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+        .card-header { 
+            padding: 16px 16px 8px 16px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        
+        /* Badges */
+        .badge { 
+            font-size: 11px; 
+            font-weight: 600; 
+            padding: 4px 8px; 
+            border-radius: 4px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-jobs { background: var(--primary-light); color: var(--primary); }
+        .badge-property { background: #fef3c7; color: #d97706; }
+        .badge-services { background: #f0fdf4; color: #16a34a; }
+        .badge-health { background: #f3e8ff; color: #7c3aed; }
+        
+        .posted-date { 
+            font-size: 12px; 
+            color: var(--text-muted); 
+            font-weight: 500; 
+        }
+        .card-body { 
+            padding: 0 16px 16px 16px; 
+            flex-grow: 1; 
+        }
+        .card-title { 
+            font-size: 16px; 
+            font-weight: 700; 
+            margin-bottom: 4px; 
+            line-height: 1.3;
+        }
+        .card-subtitle { 
+            font-size: 13px; 
+            color: var(--text-muted); 
+            margin-bottom: 12px; 
+        }
+        
+        .card-details {
+            font-size: 13px; 
+            background: #f8fafc; 
+            padding: 10px;
+            border-radius: 6px; 
+            margin-bottom: 12px; 
+            border-left: 3px solid #cbd5e1;
+        }
+        .card-details p {
+            margin-bottom: 4px;
+        }
+        .card-details p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .lang-tamil {
+            font-size: 13px; 
+            color: #4b5563; 
+            background: #fffbeb;
+            padding: 6px 10px; 
+            border-radius: 4px; 
+            border: 1px dashed #fcd34d;
+            margin-top: 8px;
+        }
+        
+        .card-footer {
+            padding: 12px 16px; 
+            background: #fafafa;
+            border-top: 1px solid var(--border-color);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .phone-link { 
+            color: var(--primary); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 14px; 
+        }
+        .phone-link:hover {
+            text-decoration: underline;
+        }
+        .btn-action { 
+            background: var(--primary); 
+            color: white; 
+            padding: 6px 12px; 
+            border-radius: 4px; 
+            text-decoration: none; 
+            font-size: 12px; 
+            font-weight: 500;
+        }
+        .btn-action:hover {
+            background-color: #1d4ed8;
+        }
+
+        @media (max-width: 640px) {
+            .filter-bar { flex-direction: column; align-items: stretch; }
+            .listings-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Local Digital Classifieds</h1>
+        <p>Live automated local notice board</p>
+    </header>
+
+    <div class="filter-container">
+        <div class="filter-bar">
+            <!-- Text Search -->
+            <input type="text" id="searchBox" class="filter-input search-input" placeholder="Search keywords...">
+            
+            <!-- Category Filter -->
+            <select id="categoryFilter" class="filter-input">
+                <option value="">All Categories</option>
+                <option value="jobs">Jobs</option>
+                <option value="property">Property</option>
+                <option value="services">Services</option>
+                <option value="health">Health</option>
+            </select>
+            
+            <!-- Date Filter within data file -->
+            <input type="date" id="dateFilter" class="filter-input" title="Filter by specific day">
+
+            <!-- Month / Archive File Selector -->
+            <select id="monthSelector" class="filter-input" style="font-weight: bold; border-color: #cbd5e1;">
+                <option value="2026-06">June 2026</option>
+                <option value="2026-05">May 2026</option>
+                <option value="2026-04">April 2026</option>
+            </select>
+            
+            <button id="clearFilters" class="btn-action" style="background:#64748b; height: 40px;">Reset Filters</button>
+        </div>
+    </div>
+
+    <main>
+        <div id="listingsGrid" class="listings-grid">
+            <!-- Dynamic Cards Load Content Here -->
+        </div>
+    </main>
+
+    <script>
+        let allListings = [];
+
+        // 1. Initialize the app or detect current active archive period
+        // Drops default view directly to the current calendar month view
+        const currentYearMonth = new Date().toISOString().slice(0, 7); 
+        
+        // Ensure our dropdown menu default reflects the actual active year-month calendar context
+        const monthSelectorEl = document.getElementById('monthSelector');
+        if (Array.from(monthSelectorEl.options).some(option => option.value === currentYearMonth)) {
+            monthSelectorEl.value = currentYearMonth;
+        }
+
+        // 2. Fetch specific target JSON file bundle
+        async function loadListings(yearMonth) {
+            const grid = document.getElementById('listingsGrid');
+            grid.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:40px; color:#64748b;">Loading listings archive...</p>';
+
+            try {
+                // This fetches from subfolder layout paths: data/2026-06.json
+                const response = await fetch(`data/${yearMonth}.json`);
+                
+                if (!response.ok) {
+                    throw new Error(`Data file data/${yearMonth}.json not available yet.`);
+                }
+                
+                allListings = await response.json();
+                renderListings(allListings);
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = `
+                    <p style="grid-column: 1/-1; text-align:center; padding:40px; color:#dc2626; font-weight:500;">
+                        Could not load data file for "${yearMonth}". <br>
+                        <span style="font-size:13px; font-weight:normal; color:#64748b;">Please verify that data/${yearMonth}.json exists in your directory folder structure.</span>
+                    </p>`;
+            }
+        }
+
+        // 3. Render loaded payload elements to the grid view layout
+        function renderListings(listings) {
+            const grid = document.getElementById('listingsGrid');
+            grid.innerHTML = '';
+
+            if (listings.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:40px; color:#64748b;">No matching listings found for chosen filters.</p>';
+                return;
+            }
+
+            listings.forEach(item => {
+                // Compile inner specifications text block list layout strings
+                let detailsHTML = '';
+                if (item.details) {
+                    for (const [key, value] of Object.entries(item.details)) {
+                        detailsHTML += `<p><strong>${key}:</strong> ${value}</p>`;
+                    }
+                }
+
+                const card = document.createElement('article');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-header">
+                        <span class="badge badge-${item.category}">${item.category}</span>
+                        <span class="posted-date">📅 ${item.datePosted}</span>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">${item.title}</h2>
+                        <div class="card-subtitle">${item.company}</div>
+                        ${detailsHTML ? `<div class="card-details">${detailsHTML}</div>` : ''}
+                        ${item.regionalText ? `<div class="lang-tamil">${item.regionalText}</div>` : ''}
+                    </div>
+                    <div class="card-footer">
+                        <a href="tel:${item.phone.replace(/\s+/g, '')}" class="phone-link">📞 ${item.phone}</a>
+                        <a href="${item.actionUrl || '#'}" class="btn-action">Interact</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // 4. Combined Filtering engine matching Search, Categories, and Days
+        function filterListings() {
+            const searchVal = document.getElementById('searchBox').value.toLowerCase();
+            const catVal = document.getElementById('categoryFilter').value;
+            const dateVal = document.getElementById('dateFilter').value;
+
+            const filtered = allListings.filter(item => {
+                const matchesSearch = item.title.toLowerCase().includes(searchVal) || 
+                                      item.company.toLowerCase().includes(searchVal) ||
+                                      (item.regionalText && item.regionalText.toLowerCase().includes(searchVal));
+                const matchesCat = catVal === "" || item.category === catVal;
+                const matchesDate = dateVal === "" || item.datePosted === dateVal;
+
+                return matchesSearch && matchesCat && matchesDate;
+            });
+
+            renderListings(filtered);
+        }
+
+        // Event Interceptors
+        document.getElementById('searchBox').addEventListener('input', filterListings);
+        document.getElementById('categoryFilter').addEventListener('change', filterListings);
+        document.getElementById('dateFilter').addEventListener('change', filterListings);
+        
+        // Month drop select target file update triggers
+        document.getElementById('monthSelector').addEventListener('change', (e) => {
+            // Reset day input options whenever changing primary datasets
+            document.getElementById('dateFilter').value = ''; 
+            loadListings(e.target.value);
+        });
+
+        // Reset system dashboard filters back to base array settings state
+        document.getElementById('clearFilters').addEventListener('click', () => {
+            document.getElementById('searchBox').value = '';
+            document.getElementById('categoryFilter').value = '';
+            document.getElementById('dateFilter').value = '';
+            renderListings(allListings);
+        });
+
+        // App Kickoff initialization loop sequence
+        window.onload = () => {
+            loadListings(document.getElementById('monthSelector').value);
+        };
+    </script>
+</body>
+</html>
