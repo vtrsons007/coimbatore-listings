@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Classifieds Portal</title>
+    <style>
+        /* Base Reset & Variables */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --border-color: #e2e8f0;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-site: #f8fafc;
+            --bg-card: #ffffff;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --radius: 12px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-site);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding-bottom: 60px;
+        }
+
+        /* Header Area */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+        header p {
+            font-size: 14px;
+            color: #93c5fd;
+        }
+
+        /* Search & Filter Bar */
+        .filter-container {
+            max-width: 1200px;
+            margin: -20px auto 24px auto;
+            padding: 0 16px;
+        }
+        .filter-bar {
+            background: var(--bg-card);
+            padding: 16px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+        .filter-input {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: white;
+            color: var(--text-main);
+            outline: none;
+        }
+        .filter-input:focus {
+            border-color: var(--primary);
+        }
+        .search-input { 
+            flex: 1; 
+            min-width: 200px; 
+        }
+
+        /* Main Layout Grid */
+        main { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 16px; 
+        }
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card Component Styles */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            scroll-margin-top: 30px; /* Smooth scrolling target buffer */
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+        
+        /* Highlight shared card when linked directly */
+        .card:target {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px #bfdbfe;
+        }
+
+        .card-header { 
+            padding: 16px 16px 8px 16px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        
+        /* Badges */
+        .badge { 
+            font-size: 11px; 
+            font-weight: 600; 
+            padding: 4px 8px; 
+            border-radius: 4px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-jobs { background: var(--primary-light); color: var(--primary); }
+        .badge-property { background: #fef3c7; color: #d97706; }
+        .badge-services { background: #f0fdf4; color: #16a34a; }
+        .badge-health { background: #f3e8ff; color: #7c3aed; }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .posted-date { 
+            font-size: 12px; 
+            color: var(--text-muted); 
+            font-weight: 500; 
+        }
+
+        /* Share Button Styling */
+        .btn-share {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-share:hover {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+
+        .card-body { 
+            padding: 0 16px 16px 16px; 
+            flex-grow: 1; 
+        }
+        .card-title { 
+            font-size: 16px; 
+            font-weight: 700; 
+            margin-bottom: 4px; 
+            line-height: 1.3;
+        }
+        .card-subtitle { 
+            font-size: 13px; 
+            color: var(--text-muted); 
+            margin-bottom: 12px; 
+        }
+        
+        .card-details {
+            font-size: 13px; 
+            background: #f8fafc; 
+            padding: 10px;
+            border-radius: 6px; 
+            margin-bottom: 12px; 
+            border-left: 3px solid #cbd5e1;
+        }
+        .card-details p {
+            margin-bottom: 4px;
+        }
+        .card-details p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .lang-tamil {
+            font-size: 13px; 
+            color: #4b5563; 
+            background: #fffbeb;
+            padding: 6px 10px; 
+            border-radius: 4px; 
+            border: 1px dashed #fcd34d;
+            margin-top: 8px;
+        }
+        
+        .card-footer {
+            padding: 12px 16px; 
+            background: #fafafa;
+            border-top: 1px solid var(--border-color);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .phone-link { 
+            color: var(--primary); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 14px; 
+        }
+        .phone-link:hover {
+            text-decoration: underline;
+        }
+        .btn-action { 
+            background: var(--primary); 
+            color: white; 
+            padding: 6px 12px; 
+            border-radius: 4px; 
+            text-decoration: none; 
+            font-size: 12px; 
+            font-weight: 500;
+        }
+        .btn-action:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Toast notification popup style */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #334155;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 9999;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        @media (max-width: 640px) {
+            .filter-bar { flex-direction: column; align-items: stretch; }
+            .listings-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Local Digital Classifieds</h1>
+        <p>Live automated local notice board</p>
+    </header>
+
+    <div class="filter-container">
+        <div class="filter-bar">
+            <input type="text" id="searchBox" class="filter-input search-input" placeholder="Search keywords...">
+            
+            <select id="categoryFilter" class="filter-input">
+                <option value="">All Categories</option>
+                <option value="jobs">Jobs</option>
+                <option value="property">Property</option>
+                <option value="services">Services</option>
+                <option value="health">Health</option>
+            </select>
+            
+            <input type="date" id="dateFilter" class="filter-input" title="Filter by specific day">
+
+            <select id="monthSelector" class="filter-input" style="font-weight: bold; border-color: #cbd5e1;">
+                <option value="2026-06">June 2026</option>
+                <option value="2026-05">May 2026</option>
+                <option value="2026-04">April 2026</option>
+            </select>
+            
+            <button id="clearFilters" class="btn-action" style="background:#64748b; height: 40px;">Reset Filters</button>
+        </div>
+    </div>
+
+    <main>
+        <div id="listingsGrid" class="listings-grid"></div>
+    </main>
+
+    <!-- Small alert placeholder popup if native web share fails -->
+    <div id="shareToast" class="toast">📋 Link copied to clipboard!</div>
+
+    <script>
+        let allListings = [];
+        const currentYearMonth = new Date().toISOString().slice(0, 7); 
+        
+        const monthSelectorEl = document.getElementById('monthSelector');
+        if (Array.from(monthSelectorEl.options).some(option => option.value === currentYearMonth)) {
+            monthSelectorEl.value = currentYearMonth;
+        }
+
+        async function loadListings(yearMonth) {
+            const grid = document.getElementById('listingsGrid');
+            grid.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:40px; color:#64748b;">Loading listings archive...</p>';
+
+            try {
+                const response = await fetch(`data/${yearMonth}.json`);
+                if (!response.ok) throw new Error(`File data/${yearMonth}.json not available.`);
+                
+                allListings = await response.json();
+                renderListings(allListings);
+
+                // If a user landed via a shared link anchor, scroll to it smoothly after execution renders
+                if(window.location.hash) {
+                    const targetCard = document.querySelector(window.location.hash);
+                    if(targetCard) setTimeout(() => targetCard.scrollIntoView({ behavior: 'smooth' }), 300);
+                }
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:40px; color:#dc2626;">Missing active data file asset folder for "${yearMonth}".</p>`;
+            }
+        }
+
+        function renderListings(listings) {
+            const grid = document.getElementById('listingsGrid');
+            grid.innerHTML = '';
+
+            if (listings.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:40px; color:#64748b;">No matching listings found.</p>';
+                return;
+            }
+
+            listings.forEach(item => {
+                let detailsHTML = '';
+                if (item.details) {
+                    for (const [key, value] of Object.entries(item.details)) {
+                        detailsHTML += `<p><strong>${key}:</strong> ${value}</p>`;
+                    }
+                }
+
+                // Prepare safe single-quote string properties for our sharing injector function parameters
+                const safeTitle = (item.title || '').replace(/'/g, "\\'");
+                const safeCompany = (item.company || '').replace(/'/g, "\\'");
+
+                const card = document.createElement('article');
+                card.className = 'card';
+                card.id = `card-${item.id}`; // Crucial anchor hook target ID
+                card.innerHTML = `
+                    <div class="card-header">
+                        <span class="badge badge-${item.category}">${item.category}</span>
+                        <div class="header-right">
+                            <span class="posted-date">📅 ${item.datePosted}</span>
+                            <!-- Clean SVG Node Share Action trigger icon link -->
+                            <button class="btn-share" onclick="shareAd('${item.id}', '${safeTitle}', '${safeCompany}')" title="Share this Listing">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">${item.title}</h2>
+                        <div class="card-subtitle">${item.company}</div>
+                        ${detailsHTML ? `<div class="card-details">${detailsHTML}</div>` : ''}
+                        ${item.regionalText ? `<div class="lang-tamil">${item.regionalText}</div>` : ''}
+                    </div>
+                    <div class="card-footer">
+                        <a href="tel:${item.phone.replace(/\s+/g, '')}" class="phone-link">📞 ${item.phone}</a>
+                        <a href="${item.actionUrl || '#'}" class="btn-action">Interact</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // 5. Intelligent Web Share API caller architecture setup
+        async function shareAd(id, title, company) {
+            // Build absolute specific hash path linking right to this container item anchor block
+            const shareUrl = `${window.location.origin}${window.location.pathname}#card-${id}`;
+            const shareText = `Check out this listing: "${title}" posted by ${company}. See full info here:`;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: title,
+                        text: shareText,
+                        url: shareUrl
+                    });
+                } catch (err) {
+                    console.log("Native share wrapper system dismissed or faulted.", err);
+                }
+            } else {
+                // Secure clipboard copy fallback if viewed via unsupported traditional desktop browsers
+                try {
+                    await navigator.clipboard.writeText(shareUrl);
+                    showToast();
+                } catch (err) {
+                    alert("Sharing URL: " + shareUrl);
+                }
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('shareToast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function filterListings() {
+            const searchVal = document.getElementById('searchBox').value.toLowerCase();
+            const catVal = document.getElementById('categoryFilter').value;
+            const dateVal = document.getElementById('dateFilter').value;
+
+            const filtered = allListings.filter(item => {
+                const matchesSearch = item.title.toLowerCase().includes(searchVal) || 
+                                      item.company.toLowerCase().includes(searchVal) ||
+                                      (item.regionalText && item.regionalText.toLowerCase().includes(searchVal));
+                const matchesCat = catVal === "" || item.category === catVal;
+                const matchesDate = dateVal === "" || item.datePosted === dateVal;
+                return matchesSearch && matchesCat && matchesDate;
+            });
+            renderListings(filtered);
+        }
+
+        document.getElementById('searchBox').addEventListener('input', filterListings);
+        document.getElementById('categoryFilter').addEventListener('change', filterListings);
+        document.getElementById('dateFilter').addEventListener('change', filterListings);
+        
+        document.getElementById('monthSelector').addEventListener('change', (e) => {
+            document.getElementById('dateFilter').value = ''; 
+            loadListings(e.target.value);
+        });
+
+        document.getElementById('clearFilters').addEventListener('click', () => {
+            document.getElementById('searchBox').value = '';
+            document.getElementById('categoryFilter').value = '';
+            document.getElementById('dateFilter').value = '';
+            renderListings(allListings);
+        });
+
+        window.onload = () => {
+            loadListings(document.getElementById('monthSelector').value);
+        };
+    </script>
+</body>
+</html>
