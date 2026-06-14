@@ -1,0 +1,81 @@
+[
+  {
+    "id": "20260614_01",
+    "datePosted": "2026-06-14",
+    "category": "jobs",
+    "title": "Accountant Cum Office Assistant",
+    "company": "Mayur Gas Service",
+    "details": {
+      "Qualification": "10th, +2, or Any Degree",
+      "Skills Required": "Tally Prime knowledge with experience",
+      "Gender Preference": "Male / Female",
+      "Address": "No. 18, Thannir Pandal (to) Kodisia Road, Coimbatore - 04"
+    },
+    "regionalText": "தகுதி: 10, +2, டிகிரி படித்த தகுதி Tally-ல் அனுபவமுள்ளவர்கள். திறமைக்கேற்ப நல்ல சம்பளம்.",
+    "phone": "90470 27777",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260614_02",
+    "datePosted": "2026-06-14",
+    "category": "property",
+    "title": "House For Sale @ Vedapatti",
+    "company": "Perumal Naidu Layout",
+    "details": {
+      "Plot Area": "2440 sq.ft.",
+      "Building Area": "1500 sq.ft.",
+      "Pricing": "Rs. 99 Lakhs (Negotiable)",
+      "Status": "Ready to Occupy"
+    },
+    "regionalText": "விற்பனைக்கு (புதியது) வீடு விற்பனைக்கு - வீடபட்டி.",
+    "phone": "87788 99100",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260613_01",
+    "datePosted": "2026-06-13",
+    "category": "property",
+    "title": "Commercial Space For Rent",
+    "company": "Central Excise Colony Space",
+    "details": {
+      "Space Size": "750 sq.ft. Ground Floor",
+      "Location": "P.N.Pudur, Coimbatore",
+      "Suitable For": "Office, Super Market, or Clinic",
+      "Proximity": "Behind Bimetal Bearing Company"
+    },
+    "regionalText": "வணிகக் கட்டிடம் வாடகைக்கு - பி.என்.புதூர், கோவை.",
+    "phone": "86677 59347",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260612_01",
+    "datePosted": "2026-06-12",
+    "category": "services",
+    "title": "Scientific Borewells & Water Divining",
+    "company": "Sri Karthik Borewells",
+    "details": {
+      "Drilling Sizes": "4½\", 4¾\", 5\", 6½\"",
+      "Consultation": "Scientific Water Diviner / Geologist Advice available",
+      "Service Area": "Coimbatore and surrounding districts"
+    },
+    "regionalText": "ஸ்ரீ கார்த்திக் போர்வெல்ஸ் - நீரூற்று நிபுணர் மற்றும் விஞ்ஞான ஆலோசகர்.",
+    "phone": "88070 66957",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260611_01",
+    "datePosted": "2026-06-11",
+    "category": "health",
+    "title": "Care Health Insurance Plan",
+    "company": "Care Health Insurance Group",
+    "details": {
+      "Cashless Facility": "100% Cashless Treatment",
+      "Premium Lock": "Premium remains locked until a claim arises",
+      "Pre-Existing Cover": "Pre-Existing Medical Conditions covered after 30 days",
+      "Bonus Benefit": "1st Yr Base Premium will be paid back after 5 consecutive claim-free yrs"
+    },
+    "regionalText": "100% Cashless Treatment. Pre-Existing Medical Conditions will be covered after 30 days.",
+    "phone": "99626 64603",
+    "actionUrl": "#"
+  }
+]
