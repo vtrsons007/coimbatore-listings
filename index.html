@@ -114,11 +114,18 @@
             transform: translateY(-1px);
         }
         
+        /* Category Specific Styling Map */
         .pill-all { background: #f1f5f9; color: #475569; }
-        .pill-jobs { background: var(--primary-light); color: var(--primary); }
-        .pill-property { background: #fef3c7; color: #d97706; }
-        .pill-services { background: #f0fdf4; color: #16a34a; }
-        .pill-health { background: #f3e8ff; color: #7c3aed; }
+        .pill-jobs, .badge-jobs { background: var(--primary-light); color: var(--primary); }
+        .pill-property, .badge-property { background: #fef3c7; color: #d97706; }
+        .pill-services, .badge-services { background: #f0fdf4; color: #16a34a; }
+        .pill-health, .badge-health { background: #f3e8ff; color: #7c3aed; }
+        
+        /* NEW: Custom Vibrant Design Theme Built explicitly for Offers */
+        .pill-offers, .badge-offers { background: #ffedd5; color: #ea580c; } 
+        
+        /* Universal Fallback Color Theme for any unexpected future categories */
+        .pill-default, .badge-default { background: #e2e8f0; color: #475569; }
 
         .pill-btn.active {
             border-color: currentColor;
@@ -176,10 +183,6 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .badge-jobs { background: var(--primary-light); color: var(--primary); }
-        .badge-property { background: #fef3c7; color: #d97706; }
-        .badge-services { background: #f0fdf4; color: #16a34a; }
-        .badge-health { background: #f3e8ff; color: #7c3aed; }
         
         .header-right {
             display: flex;
@@ -358,13 +361,7 @@
                 <button id="clearFilters" class="btn-action" style="background:#64748b; height: 40px;">Reset Filters</button>
             </div>
 
-            <div class="pills-container">
-                <button class="pill-btn pill-all active" onclick="selectCategory('', this)">All</button>
-                <button class="pill-btn pill-jobs" onclick="selectCategory('jobs', this)">Jobs</button>
-                <button class="pill-btn pill-property" onclick="selectCategory('property', this)">Property</button>
-                <button class="pill-btn pill-services" onclick="selectCategory('services', this)">Services</button>
-                <button class="pill-btn pill-health" onclick="selectCategory('health', this)">Health</button>
-            </div>
+            <div class="pills-container" id="pillsContainer"></div>
         </div>
     </div>
 
@@ -384,6 +381,9 @@
         let activeCategory = ""; 
         const ITEMS_PER_PAGE = 20; 
         
+        // Internal tracking list of defined style categories
+        const KNOWN_CATEGORIES = ['jobs', 'property', 'services', 'health', 'offers'];
+        
         const currentYearMonth = new Date().toISOString().slice(0, 7); 
         const monthSelectorEl = document.getElementById('monthSelector');
         if (Array.from(monthSelectorEl.options).some(option => option.value === currentYearMonth)) {
@@ -401,6 +401,9 @@
                 
                 allListings = await response.json();
                 
+                // Automatically generate pill buttons based on what categories exist inside the current month JSON data file
+                generateCategoryPills();
+
                 if(window.location.hash) {
                     filteredListings = [...allListings];
                     renderListingsChunks(true); 
@@ -411,8 +414,33 @@
                 }
             } catch (error) {
                 console.error(error);
-                grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:40px; color:#dc2626;">Missing active data file asset folder for "${yearMonth}".</p>`;
+                grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:40px; color:#dc2626;">Missing active data file asset folder for "${yearMonth}".</p>';`;
             }
+        }
+
+        // NEW ENGINE FUNCTION: Builds pill menu choices automatically from current month data file parameters
+        function generateCategoryPills() {
+            const container = document.getElementById('pillsContainer');
+            const uniqueCategories = new Set();
+
+            // Extract lowercase unique category values
+            allListings.forEach(item => {
+                if (item.category) uniqueCategories.add(item.category.trim().toLowerCase());
+            });
+
+            // Initialize default "All" button string wrapper template
+            let pillsHTML = `<button class="pill-btn pill-all ${activeCategory === '' ? 'active' : ''}" onclick="selectCategory('', this)">All</button>`;
+
+            // Generate remaining button elements dynamically
+            uniqueCategories.forEach(cat => {
+                const themeClass = KNOWN_CATEGORIES.includes(cat) ? `pill-${cat}` : 'pill-default';
+                const labelText = cat.charAt(0).toUpperCase() + cat.slice(1);
+                const activeStateClass = activeCategory === cat ? 'active' : '';
+
+                pillsHTML += `<button class="pill-btn ${themeClass} ${activeStateClass}" onclick="selectCategory('${cat}', this)">${labelText}</button>`;
+            });
+
+            container.innerHTML = pillsHTML;
         }
 
         function renderListingsChunks(renderAll = false) {
@@ -440,12 +468,16 @@
                 const emailBody = encodeURIComponent(`Hello,\n\nPlease remove Listing ID: ${item.id}.\nThank you.`);
                 const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(item.company)}`;
 
+                // Verify category variant match structure, or safely pass default class color
+                const currentCatLower = (item.category || '').trim().toLowerCase();
+                const badgeThemeClass = KNOWN_CATEGORIES.includes(currentCatLower) ? `badge-${currentCatLower}` : 'badge-default';
+
                 const card = document.createElement('article');
                 card.className = 'card';
                 card.id = `card-${item.id}`;
                 card.innerHTML = `
                     <div class="card-header">
-                        <span class="badge badge-${item.category}">${item.category}</span>
+                        <span class="badge ${badgeThemeClass}">${item.category}</span>
                         <div class="header-right">
                             <span class="posted-date">📅 ${item.datePosted}</span>
                             <button class="btn-share" onclick="shareAd('${item.id}', '${safeTitle}', '${safeCompany}')" title="Share this Listing">
@@ -491,15 +523,14 @@
                 const matchesSearch = item.title.toLowerCase().includes(searchVal) || 
                                       item.company.toLowerCase().includes(searchVal) ||
                                       (item.regionalText && item.regionalText.toLowerCase().includes(searchVal));
-                const matchesCat = activeCategory === "" || item.category === activeCategory;
+                
+                const currentItemCat = (item.category || '').trim().toLowerCase();
+                const matchesCat = activeCategory === "" || currentItemCat === activeCategory;
                 const matchesDate = dateVal === "" || item.datePosted === dateVal;
                 return matchesSearch && matchesCat && matchesDate;
             });
 
             itemsRendered = 0; 
-            
-            // CRITICAL BUG FIX: Resets window view layout to top 
-            // Prevents false triggering of lazy load appends when switching views
             window.scrollTo({ top: 0 });
 
             const grid = document.getElementById('listingsGrid');
@@ -515,45 +546,4 @@
         document.getElementById('loadMoreBtn').addEventListener('click', () => renderListingsChunks());
 
         async function shareAd(id, title, company) {
-            const shareUrl = `${window.location.origin}${window.location.pathname}#card-${id}`;
-            const shareText = `Check out this listing: "${title}" posted by ${company}. See full info here:`;
-
-            if (navigator.share) {
-                try {
-                    await navigator.share({ title: title, text: shareText, url: shareUrl });
-                } catch (err) { console.log("Share skipped."); }
-            } else {
-                try {
-                    await navigator.clipboard.writeText(shareUrl);
-                    showToast();
-                } catch (err) { alert("Sharing URL: " + shareUrl); }
-            }
-        }
-
-        function showToast() {
-            const toast = document.getElementById('shareToast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        }
-
-        document.getElementById('searchBox').addEventListener('input', filterListings);
-        // FIXED EVENT TYPO: Changed wrong 'dateFilter' event type listener to standard 'change' 
-        document.getElementById('dateFilter').addEventListener('change', filterListings);
-        
-        document.getElementById('monthSelector').addEventListener('change', (e) => {
-            document.getElementById('dateFilter').value = ''; 
-            loadListings(e.target.value);
-        });
-
-        document.getElementById('clearFilters').addEventListener('click', () => {
-            document.getElementById('searchBox').value = '';
-            document.getElementById('dateFilter').value = '';
-            selectCategory('', document.querySelector('.pill-all'));
-        });
-
-        window.onload = () => {
-            loadListings(document.getElementById('monthSelector').value);
-        };
-    </script>
-</body>
-</html>
+            const shareUrl = `${window.location.origin}${window.
