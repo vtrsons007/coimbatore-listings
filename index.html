@@ -256,7 +256,7 @@
             transition: color 0.2s;
         }
         .takedown-note:hover {
-            color: #ef4444; /* Turns soft red on hover to indicate removal action */
+            color: #ef4444; 
             text-decoration: underline;
         }
 
@@ -371,10 +371,12 @@
                 const safeTitle = (item.title || '').replace(/'/g, "\\'");
                 const safeCompany = (item.company || '').replace(/'/g, "\\'");
 
-                // Set your support or administration email account link here
                 const adminEmail = "your-email@example.com"; 
                 const emailSubject = encodeURIComponent(`Removal Request for Listing ID: ${item.id}`);
                 const emailBody = encodeURIComponent(`Hello, I am the owner of this ad listing.\n\nPlease remove or update the following item:\nListing ID: ${item.id}\nTitle: ${item.title}\n\nThank you.`);
+
+                // Dynamically build the automated web search query URL string block
+                const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(item.company)}`;
 
                 const card = document.createElement('article');
                 card.className = 'card';
@@ -398,9 +400,9 @@
                     <div class="card-footer">
                         <div class="footer-actions">
                             <a href="tel:${item.phone.replace(/\s+/g, '')}" class="phone-link">📞 ${item.phone}</a>
-                            <a href="${item.actionUrl || '#'}" class="btn-action">Interact</a>
+                            <!-- Updated action anchor link to automatically route to prefilled Google Search queries -->
+                            <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer" class="btn-action">Interact</a>
                         </div>
-                        <!-- Friendly Takedown/Claim Policy Note Integrated into bottom wrapper link -->
                         <a href="mailto:${adminEmail}?subject=${emailSubject}&body=${emailBody}" class="takedown-note">
                             Are you the owner of this listing? Click to update or remove.
                         </a>
