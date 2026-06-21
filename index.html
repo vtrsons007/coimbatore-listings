@@ -546,4 +546,46 @@
         document.getElementById('loadMoreBtn').addEventListener('click', () => renderListingsChunks());
 
         async function shareAd(id, title, company) {
-            const shareUrl = `${window.location.origin}${window.
+            const shareUrl = `${window.location.origin}${window.location.pathname}#card-${id}`;
+            const shareText = `Check out this listing: "${title}" posted by ${company}. See full info here:`;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title: title, text: shareText, url: shareUrl });
+                } catch (err) { console.log("Share skipped."); }
+            } else {
+                try {
+                    await navigator.clipboard.writeText(shareUrl);
+                    showToast();
+                } catch (err) { alert("Sharing URL: " + shareUrl); }
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('shareToast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        document.getElementById('searchBox').addEventListener('input', filterListings);
+        document.getElementById('dateFilter').addEventListener('change', filterListings);
+        
+        document.getElementById('monthSelector').addEventListener('change', (e) => {
+            document.getElementById('dateFilter').value = ''; 
+            // Reset categories filters gracefully when shifting months datasets
+            activeCategory = '';
+            loadListings(e.target.value);
+        });
+
+        document.getElementById('clearFilters').addEventListener('click', () => {
+            document.getElementById('searchBox').value = '';
+            document.getElementById('dateFilter').value = '';
+            selectCategory('', document.querySelector('.pill-all'));
+        });
+
+        window.onload = () => {
+            loadListings(document.getElementById('monthSelector').value);
+        };
+    </script>
+</body>
+</html>
