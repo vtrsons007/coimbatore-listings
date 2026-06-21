@@ -63,8 +63,14 @@
             box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
             display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .filter-controls-row {
+            display: flex;
             flex-wrap: wrap;
             gap: 12px;
+            width: 100%;
             align-items: center;
         }
         .filter-input {
@@ -82,6 +88,44 @@
         .search-input { 
             flex: 1; 
             min-width: 200px; 
+        }
+
+        /* Category Quick Pills Styling matching image_346e5d.png */
+        .pills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+            padding-top: 4px;
+        }
+        .pill-btn {
+            border: 2px solid transparent;
+            padding: 8px 22px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 10px; /* Matching the soft square-rounded corners of the reference image */
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .pill-btn:hover {
+            transform: translateY(-1px);
+        }
+        
+        /* Individual Color Variants matching visual design themes */
+        .pill-all { background: #f1f5f9; color: #475569; }
+        .pill-jobs { background: var(--primary-light); color: var(--primary); }
+        .pill-property { background: #fef3c7; color: #d97706; }
+        .pill-services { background: #f0fdf4; color: #16a34a; }
+        .pill-health { background: #f3e8ff; color: #7c3aed; } /* Styled exactly like image_346e5d.png */
+
+        /* Active State indicator outlines */
+        .pill-btn.active {
+            border-color: currentColor;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transform: scale(1.02);
         }
 
         /* Main Layout Grid */
@@ -126,7 +170,6 @@
             align-items: center;
         }
         
-        /* Badges */
         .badge { 
             font-size: 11px; 
             font-weight: 600; 
@@ -152,7 +195,6 @@
             font-weight: 500; 
         }
 
-        /* Share Button Styling */
         .btn-share {
             background: none;
             border: none;
@@ -194,12 +236,8 @@
             margin-bottom: 12px; 
             border-left: 3px solid #cbd5e1;
         }
-        .card-details p {
-            margin-bottom: 4px;
-        }
-        .card-details p:last-child {
-            margin-bottom: 0;
-        }
+        .card-details p { margin-bottom: 4px; }
+        .card-details p:last-child { margin-bottom: 0; }
         
         .lang-tamil {
             font-size: 13px; 
@@ -211,7 +249,6 @@
             margin-top: 8px;
         }
         
-        /* Card Footer Configurations */
         .card-footer {
             padding: 12px 16px; 
             background: #fafafa;
@@ -229,9 +266,8 @@
             font-weight: 600; 
             font-size: 14px; 
         }
-        .phone-link:hover {
-            text-decoration: underline;
-        }
+        .phone-link:hover { text-decoration: underline; }
+        
         .btn-action { 
             background: var(--primary); 
             color: white; 
@@ -241,11 +277,8 @@
             font-size: 12px; 
             font-weight: 500;
         }
-        .btn-action:hover {
-            background-color: #1d4ed8;
-        }
+        .btn-action:hover { background-color: #1d4ed8; }
 
-        /* Subtle Owner Takedown Note Styling */
         .takedown-note {
             display: block;
             font-size: 11px;
@@ -261,7 +294,6 @@
             text-decoration: underline;
         }
 
-        /* Pagination Load More Button Layout styling */
         .load-more-container {
             text-align: center;
             margin: 20px 0 40px 0;
@@ -283,7 +315,6 @@
             color: white;
         }
 
-        /* Toast notification popup style */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -302,8 +333,10 @@
         .toast.show { transform: translateX(-50%) translateY(0); }
 
         @media (max-width: 640px) {
-            .filter-bar { flex-direction: column; align-items: stretch; }
+            .filter-bar { align-items: stretch; }
+            .filter-controls-row { flex-direction: column; align-items: stretch; }
             .listings-grid { grid-template-columns: 1fr; }
+            .pills-container { justify-content: center; }
         }
     </style>
 </head>
@@ -316,32 +349,31 @@
 
     <div class="filter-container">
         <div class="filter-bar">
-            <input type="text" id="searchBox" class="filter-input search-input" placeholder="Search keywords...">
-            
-            <select id="categoryFilter" class="filter-input">
-                <option value="">All Categories</option>
-                <option value="jobs">Jobs</option>
-                <option value="property">Property</option>
-                <option value="services">Services</option>
-                <option value="health">Health</option>
-            </select>
-            
-            <input type="date" id="dateFilter" class="filter-input" title="Filter by specific day">
+            <!-- Top Row Controls -->
+            <div class="filter-controls-row">
+                <input type="text" id="searchBox" class="filter-input search-input" placeholder="Search keywords...">
+                <input type="date" id="dateFilter" class="filter-input" title="Filter by specific day">
+                <select id="monthSelector" class="filter-input" style="font-weight: bold; border-color: #cbd5e1;">
+                    <option value="2026-06">June 2026</option>
+                    <option value="2026-05">May 2026</option>
+                    <option value="2026-04">April 2026</option>
+                </select>
+                <button id="clearFilters" class="btn-action" style="background:#64748b; height: 40px;">Reset Filters</button>
+            </div>
 
-            <select id="monthSelector" class="filter-input" style="font-weight: bold; border-color: #cbd5e1;">
-                <option value="2026-06">June 2026</option>
-                <option value="2026-05">May 2026</option>
-                <option value="2026-04">April 2026</option>
-            </select>
-            
-            <button id="clearFilters" class="btn-action" style="background:#64748b; height: 40px;">Reset Filters</button>
+            <!-- Bottom Row Category Buttons Layout (Reference: image_346e5d.png) -->
+            <div class="pills-container">
+                <button class="pill-btn pill-all active" onclick="selectCategory('', this)">All</button>
+                <button class="pill-btn pill-jobs" onclick="selectCategory('jobs', this)">Jobs</button>
+                <button class="pill-btn pill-property" onclick="selectCategory('property', this)">Property</button>
+                <button class="pill-btn pill-services" onclick="selectCategory('services', this)">Services</button>
+                <button class="pill-btn pill-health" onclick="selectCategory('health', this)">Health</button>
+            </div>
         </div>
     </div>
 
     <main>
         <div id="listingsGrid" class="listings-grid"></div>
-        
-        <!-- Lazy Loading Container Button -->
         <div class="load-more-container">
             <button id="loadMoreBtn" class="btn-load-more" style="display: none;">Load More Listings</button>
         </div>
@@ -350,11 +382,11 @@
     <div id="shareToast" class="toast">📋 Link copied to clipboard!</div>
 
     <script>
-        // Pagination state monitors
         let allListings = [];
         let filteredListings = [];
         let itemsRendered = 0;
-        const ITEMS_PER_PAGE = 20; // Only renders 20 cards at a time for performance layout optimization
+        let activeCategory = ""; // Global variable to monitor active button criteria state
+        const ITEMS_PER_PAGE = 20; 
         
         const currentYearMonth = new Date().toISOString().slice(0, 7); 
         const monthSelectorEl = document.getElementById('monthSelector');
@@ -373,15 +405,13 @@
                 
                 allListings = await response.json();
                 
-                // Deep-link check layout bypass: If loading via deep-link card hash, disable pagination on load 
-                // so the browser can accurately find and scroll directly to the targeted card element.
                 if(window.location.hash) {
                     filteredListings = [...allListings];
-                    renderListingsChunks(true); // Render everything at once for direct hash targets
+                    renderListingsChunks(true); 
                     const targetCard = document.querySelector(window.location.hash);
                     if(targetCard) setTimeout(() => targetCard.scrollIntoView({ behavior: 'smooth' }), 300);
                 } else {
-                    filterListings(); // Execute default chunking filtration routing profiles
+                    filterListings(); 
                 }
             } catch (error) {
                 console.error(error);
@@ -389,7 +419,6 @@
             }
         }
 
-        // Handles slicing data array records into lazy-rendered chunks
         function renderListingsChunks(renderAll = false) {
             const grid = document.getElementById('listingsGrid');
             const loadMoreBtn = document.getElementById('loadMoreBtn');
@@ -448,32 +477,35 @@
             });
 
             itemsRendered = end;
+            loadMoreBtn.style.display = (itemsRendered >= filteredListings.length) ? 'none' : 'inline-block';
+        }
 
-            // Hide or reveal the "Load More" interface depending on matching unrendered records left
-            if (itemsRendered >= filteredListings.length) {
-                loadMoreBtn.style.display = 'none';
-            } else {
-                loadMoreBtn.style.display = 'inline-block';
-            }
+        // Handles active pill class toggles on tap criteria selection loops
+        function selectCategory(categoryValue, element) {
+            activeCategory = categoryValue;
+            
+            // Wipe active outline status indicator labels across all buttons
+            document.querySelectorAll('.pill-btn').forEach(btn => btn.classList.remove('active'));
+            // Apply outline indicators cleanly onto current selected button criteria layout node
+            element.classList.add('active');
+            
+            filterListings();
         }
 
         function filterListings() {
             const searchVal = document.getElementById('searchBox').value.toLowerCase();
-            const catVal = document.getElementById('categoryFilter').value;
             const dateVal = document.getElementById('dateFilter').value;
 
             filteredListings = allListings.filter(item => {
                 const matchesSearch = item.title.toLowerCase().includes(searchVal) || 
                                       item.company.toLowerCase().includes(searchVal) ||
                                       (item.regionalText && item.regionalText.toLowerCase().includes(searchVal));
-                const matchesCat = catVal === "" || item.category === catVal;
+                const matchesCat = activeCategory === "" || item.category === activeCategory;
                 const matchesDate = dateVal === "" || item.datePosted === dateVal;
                 return matchesSearch && matchesCat && matchesDate;
             });
 
-            // Crucial: Reset chunk counters whenever active filters update execution branches
             itemsRendered = 0; 
-            
             const grid = document.getElementById('listingsGrid');
             if (filteredListings.length === 0) {
                 grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:40px; color:#64748b;">No matching listings found.</p>';
@@ -484,7 +516,6 @@
             renderListingsChunks();
         }
 
-        // Infinite Scroll trigger hook event bind logic
         document.getElementById('loadMoreBtn').addEventListener('click', () => renderListingsChunks());
 
         async function shareAd(id, title, company) {
@@ -510,7 +541,7 @@
         }
 
         document.getElementById('searchBox').addEventListener('input', filterListings);
-        document.getElementById('categoryFilter').addEventListener('change', filterListings);
+        document.getElementById('dateFilter').addEventListener('dateFilter', filterListings);
         document.getElementById('dateFilter').addEventListener('change', filterListings);
         
         document.getElementById('monthSelector').addEventListener('change', (e) => {
@@ -520,9 +551,10 @@
 
         document.getElementById('clearFilters').addEventListener('click', () => {
             document.getElementById('searchBox').value = '';
-            document.getElementById('categoryFilter').value = '';
             document.getElementById('dateFilter').value = '';
-            filterListings();
+            
+            // Force reset active pill back to "All" button element position state rules
+            selectCategory('', document.querySelector('.pill-all'));
         });
 
         window.onload = () => {
