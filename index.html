@@ -90,7 +90,7 @@
             min-width: 200px; 
         }
 
-        /* Category Quick Pills Styling matching image_346e5d.png */
+        /* Category Quick Pills Styling */
         .pills-container {
             display: flex;
             flex-wrap: wrap;
@@ -103,7 +103,7 @@
             padding: 8px 22px;
             font-size: 13px;
             font-weight: 700;
-            border-radius: 10px; /* Matching the soft square-rounded corners of the reference image */
+            border-radius: 10px;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -114,14 +114,12 @@
             transform: translateY(-1px);
         }
         
-        /* Individual Color Variants matching visual design themes */
         .pill-all { background: #f1f5f9; color: #475569; }
         .pill-jobs { background: var(--primary-light); color: var(--primary); }
         .pill-property { background: #fef3c7; color: #d97706; }
         .pill-services { background: #f0fdf4; color: #16a34a; }
-        .pill-health { background: #f3e8ff; color: #7c3aed; } /* Styled exactly like image_346e5d.png */
+        .pill-health { background: #f3e8ff; color: #7c3aed; }
 
-        /* Active State indicator outlines */
         .pill-btn.active {
             border-color: currentColor;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
@@ -266,7 +264,7 @@
             font-weight: 600; 
             font-size: 14px; 
         }
-        .phone-link:hover { text-decoration: underline; }
+        .phone-link:hover { padding-top: 6px; text-decoration: underline; }
         
         .btn-action { 
             background: var(--primary); 
@@ -349,7 +347,6 @@
 
     <div class="filter-container">
         <div class="filter-bar">
-            <!-- Top Row Controls -->
             <div class="filter-controls-row">
                 <input type="text" id="searchBox" class="filter-input search-input" placeholder="Search keywords...">
                 <input type="date" id="dateFilter" class="filter-input" title="Filter by specific day">
@@ -361,7 +358,6 @@
                 <button id="clearFilters" class="btn-action" style="background:#64748b; height: 40px;">Reset Filters</button>
             </div>
 
-            <!-- Bottom Row Category Buttons Layout (Reference: image_346e5d.png) -->
             <div class="pills-container">
                 <button class="pill-btn pill-all active" onclick="selectCategory('', this)">All</button>
                 <button class="pill-btn pill-jobs" onclick="selectCategory('jobs', this)">Jobs</button>
@@ -385,7 +381,7 @@
         let allListings = [];
         let filteredListings = [];
         let itemsRendered = 0;
-        let activeCategory = ""; // Global variable to monitor active button criteria state
+        let activeCategory = ""; 
         const ITEMS_PER_PAGE = 20; 
         
         const currentYearMonth = new Date().toISOString().slice(0, 7); 
@@ -480,15 +476,10 @@
             loadMoreBtn.style.display = (itemsRendered >= filteredListings.length) ? 'none' : 'inline-block';
         }
 
-        // Handles active pill class toggles on tap criteria selection loops
         function selectCategory(categoryValue, element) {
             activeCategory = categoryValue;
-            
-            // Wipe active outline status indicator labels across all buttons
             document.querySelectorAll('.pill-btn').forEach(btn => btn.classList.remove('active'));
-            // Apply outline indicators cleanly onto current selected button criteria layout node
             element.classList.add('active');
-            
             filterListings();
         }
 
@@ -506,6 +497,11 @@
             });
 
             itemsRendered = 0; 
+            
+            // CRITICAL BUG FIX: Resets window view layout to top 
+            // Prevents false triggering of lazy load appends when switching views
+            window.scrollTo({ top: 0 });
+
             const grid = document.getElementById('listingsGrid');
             if (filteredListings.length === 0) {
                 grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:40px; color:#64748b;">No matching listings found.</p>';
@@ -541,7 +537,7 @@
         }
 
         document.getElementById('searchBox').addEventListener('input', filterListings);
-        document.getElementById('dateFilter').addEventListener('dateFilter', filterListings);
+        // FIXED EVENT TYPO: Changed wrong 'dateFilter' event type listener to standard 'change' 
         document.getElementById('dateFilter').addEventListener('change', filterListings);
         
         document.getElementById('monthSelector').addEventListener('change', (e) => {
@@ -552,8 +548,6 @@
         document.getElementById('clearFilters').addEventListener('click', () => {
             document.getElementById('searchBox').value = '';
             document.getElementById('dateFilter').value = '';
-            
-            // Force reset active pill back to "All" button element position state rules
             selectCategory('', document.querySelector('.pill-all'));
         });
 
