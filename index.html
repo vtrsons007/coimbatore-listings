@@ -106,14 +106,13 @@
             flex-direction: column;
             overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s;
-            scroll-margin-top: 30px; /* Smooth scrolling target buffer */
+            scroll-margin-top: 30px;
         }
         .card:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
         }
         
-        /* Highlight shared card when linked directly */
         .card:target {
             border-color: var(--primary);
             box-shadow: 0 0 0 4px #bfdbfe;
@@ -211,13 +210,17 @@
             margin-top: 8px;
         }
         
+        /* Card Footer Configurations */
         .card-footer {
             padding: 12px 16px; 
             background: #fafafa;
             border-top: 1px solid var(--border-color);
+        }
+        .footer-actions {
             display: flex; 
             justify-content: space-between; 
             align-items: center;
+            margin-bottom: 8px;
         }
         .phone-link { 
             color: var(--primary); 
@@ -239,6 +242,22 @@
         }
         .btn-action:hover {
             background-color: #1d4ed8;
+        }
+
+        /* Subtle Owner Takedown Note Styling */
+        .takedown-note {
+            display: block;
+            font-size: 11px;
+            color: #94a3b8;
+            text-decoration: none;
+            text-align: center;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 6px;
+            transition: color 0.2s;
+        }
+        .takedown-note:hover {
+            color: #ef4444; /* Turns soft red on hover to indicate removal action */
+            text-decoration: underline;
         }
 
         /* Toast notification popup style */
@@ -300,7 +319,6 @@
         <div id="listingsGrid" class="listings-grid"></div>
     </main>
 
-    <!-- Small alert placeholder popup if native web share fails -->
     <div id="shareToast" class="toast">📋 Link copied to clipboard!</div>
 
     <script>
@@ -323,7 +341,6 @@
                 allListings = await response.json();
                 renderListings(allListings);
 
-                // If a user landed via a shared link anchor, scroll to it smoothly after execution renders
                 if(window.location.hash) {
                     const targetCard = document.querySelector(window.location.hash);
                     if(targetCard) setTimeout(() => targetCard.scrollIntoView({ behavior: 'smooth' }), 300);
@@ -351,19 +368,22 @@
                     }
                 }
 
-                // Prepare safe single-quote string properties for our sharing injector function parameters
                 const safeTitle = (item.title || '').replace(/'/g, "\\'");
                 const safeCompany = (item.company || '').replace(/'/g, "\\'");
 
+                // Set your support or administration email account link here
+                const adminEmail = "your-email@example.com"; 
+                const emailSubject = encodeURIComponent(`Removal Request for Listing ID: ${item.id}`);
+                const emailBody = encodeURIComponent(`Hello, I am the owner of this ad listing.\n\nPlease remove or update the following item:\nListing ID: ${item.id}\nTitle: ${item.title}\n\nThank you.`);
+
                 const card = document.createElement('article');
                 card.className = 'card';
-                card.id = `card-${item.id}`; // Crucial anchor hook target ID
+                card.id = `card-${item.id}`;
                 card.innerHTML = `
                     <div class="card-header">
                         <span class="badge badge-${item.category}">${item.category}</span>
                         <div class="header-right">
                             <span class="posted-date">📅 ${item.datePosted}</span>
-                            <!-- Clean SVG Node Share Action trigger icon link -->
                             <button class="btn-share" onclick="shareAd('${item.id}', '${safeTitle}', '${safeCompany}')" title="Share this Listing">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
                             </button>
@@ -376,17 +396,21 @@
                         ${item.regionalText ? `<div class="lang-tamil">${item.regionalText}</div>` : ''}
                     </div>
                     <div class="card-footer">
-                        <a href="tel:${item.phone.replace(/\s+/g, '')}" class="phone-link">📞 ${item.phone}</a>
-                        <a href="https://www.google.com/search?q=${safeCompany}" target="_blank" class="btn-action">Interact</a>                       
+                        <div class="footer-actions">
+                            <a href="tel:${item.phone.replace(/\s+/g, '')}" class="phone-link">📞 ${item.phone}</a>
+                            <a href="${item.actionUrl || '#'}" class="btn-action">Interact</a>
+                        </div>
+                        <!-- Friendly Takedown/Claim Policy Note Integrated into bottom wrapper link -->
+                        <a href="mailto:${adminEmail}?subject=${emailSubject}&body=${emailBody}" class="takedown-note">
+                            Are you the owner of this listing? Click to update or remove.
+                        </a>
                     </div>
                 `;
                 grid.appendChild(card);
             });
         }
 
-        // 5. Intelligent Web Share API caller architecture setup
         async function shareAd(id, title, company) {
-            // Build absolute specific hash path linking right to this container item anchor block
             const shareUrl = `${window.location.origin}${window.location.pathname}#card-${id}`;
             const shareText = `Check out this listing: "${title}" posted by ${company}. See full info here:`;
 
@@ -398,10 +422,9 @@
                         url: shareUrl
                     });
                 } catch (err) {
-                    console.log("Native share wrapper system dismissed or faulted.", err);
+                    console.log("Native share system dismissed.", err);
                 }
             } else {
-                // Secure clipboard copy fallback if viewed via unsupported traditional desktop browsers
                 try {
                     await navigator.clipboard.writeText(shareUrl);
                     showToast();
