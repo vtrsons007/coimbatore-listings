@@ -1,16 +1,250 @@
 [
   {
-    "id": "20260614_right_06",
+    "id": "20260621_img4_01",
     "datePosted": "2026-06-21",
-    "category": "Offers",
-    "title": "TATA Motors Offer",
-    "company": "Tata Motors & Cars",
+    "category": "jobs",
+    "title": "Senior Accountant",
+    "company": "Sukumar Transport",
     "details": {
-      "Positions": "CNC Operators, Lathe Turners, Factory Security Guards",
-      "Hours": "Day / Night roster shifts apply"
+      "Experience": "5-10 years of working knowledge in Tally",
+      "Compliance": "GST, TDS & TCS tax regulations documentation",
+      "Scope": "Manage accounts payable/receivable ledgers and bank reconciliation",
+      "Email": "sukumartransports@gmail.com"
     },
-    "regionalText": "CNC மெஷினில் வேலை பார்க்க ஆட்கள் தேவை மற்றும் செக்யூரிட்டி கார்டு தேவை. தங்குமிடம் உண்டு.",
-    "phone": "90000 12345",
+    "regionalText": "சீனியர் அக்கவுண்டன்ட் தேவை. 5-10 வருட அனுபவம், Tally தெரிந்திருக்க வேண்டும். சுகுமார் டிரான்ஸ்போர்ட்.",
+    "phone": "94431 66676",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img4_02",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Junior Accountant",
+    "company": "Sukumar Transport",
+    "details": {
+      "Experience": "2-5 years of working knowledge in Tally",
+      "Compliance": "GST and TDS filing requirements",
+      "Scope": "Maintain ledgers for daily online transactions and P&L balances"
+    },
+    "regionalText": "ஜூனியர் அக்கவுண்டன்ட் தேவை. 2-5 வருட அனுபவம், Tally மற்றும் GST தெரிந்திருக்க வேண்டும்.",
+    "phone": "94431 66676",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img4_03",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "CNC Turning Center Operators",
+    "company": "Velan Precision Engineering",
+    "details": {
+      "Positions": "Setter Cum Operator (2), M1 Dro Operator (2), Lathe Turner (2)",
+      "Experience": "Shaft experience minimum 4 to 6 years preferred",
+      "Perks": "Good salary based on experience with free accommodation",
+      "Address": "5/69 Arugampalayam, Rasi Palayam, Coimbatore-641402"
+    },
+    "regionalText": "CNC டர்னிங் சென்டர் செட்டர் மற்றும் ஆபரேட்டர்கள் தேவை. தங்குமிடம் இலவசம். வேலன் பிரசிஷன் இன்ஜினியரிங்.",
+    "phone": "96778 60042",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img4_04",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Showroom Billing & Sales Staff",
+    "company": "Townhall Furniture Showroom",
+    "details": {
+      "Roles": "Billing Assistants (Computer compulsory) & Sales (Male/Female)",
+      "Type": "Part-time or Full-time shifts available",
+      "Location": "Townhall Area, Coimbatore"
+    },
+    "regionalText": "கோவை டவுன்ஹாலில் உள்ள பர்னிச்சர் ஷோரூமிற்கு பில்லிங் மற்றும் சேல்ஸ் (ஆண்/பெண்) தேவை.",
+    "phone": "99441 51094",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img4_05",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Delta-PLC Programming & Panel Assembling",
+    "company": "Industrial Automation Systems",
+    "details": {
+      "Requirements": "Experienced or entry-level technical trainees",
+      "Location": "Kovaipudur, Coimbatore",
+      "Email": "esskayups@gmail.com"
+    },
+    "regionalText": "டெல்டா-PLC புரோகிராமிங் மற்றும் பேனல் அசெம்பிளிங் செய்ய ஆட்கள் தேவை. அனுபவம் உள்ளவர்/இல்லாதவர்.",
+    "phone": "88701 98325",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img4_06",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Premium Car & Bolero Van Driver",
+    "company": "Nagalakshmi Agencies",
+    "details": {
+      "Openings": "Bolero Van (1 No) & Automatic Premium Car (1 No)",
+      "Location": "Vellakinar, Coimbatore"
+    },
+    "regionalText": "டிரைவர் தேவை: பொலிரோ வேன் மற்றும் ஆட்டோமேட்டிக் பிரீமியம் கார் ஓட்ட ஓட்டுநர்கள் தேவை. நாகலட்சுமி ஏஜென்சிஸ்.",
+    "phone": "63790 93202",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img4_07",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Showroom Sales & Billing Executives",
+    "company": "Mahaveers - The Silk People",
+    "details": {
+      "Profile": "Sales Personnel (Male/Female) & Billing Operators (Male/Female)",
+      "Preference": "Special preference for college students or freshers in pattu/fancy apparel lines",
+      "Address": "Gandhipuram, Coimbatore"
+    },
+    "regionalText": "தேவை: விற்பனையாளர்கள் மற்றும் பில்லிங் பிரிவிற்கு ஆட்கள் தேவை. மகாவீர்ஸ், காந்திபுரம்.",
+    "phone": "82489 73423",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img4_08",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Ladies Hostel Warden & Cleaning Staff",
+    "company": "Peelamedu Women's Hostel",
+    "details": {
+      "Roles": "Female Warden & Cleaning Staff",
+      "Location": "Peelamedu, Coimbatore"
+    },
+    "regionalText": "மகளிர் விடுதிக்கு பெண் வார்டன் மற்றும் கிளீனிங் வேலை செய்ய பெண்கள் தேவை. பீளமேடு.",
+    "phone": "81244 00837",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img5_01",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Private Limited Company Car Driver",
+    "company": "Coimbatore Private Corporate Fleet",
+    "details": {
+      "Requirements": "Experienced personal or corporate drivers",
+      "Perks": "Attractive salary structures + good tracking incentives"
+    },
+    "regionalText": "CAR DRIVER WANTED: For a Private Limited Company in Coimbatore. Contact immediately.",
+    "phone": "63814 99972",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img5_02",
+    "datePosted": "2026-06-21",
+    "category": "offers",
+    "title": "Pledged Gold Jewelry Release & Cash Out",
+    "company": "Monica Gold Market",
+    "details": {
+      "Service": "Instant cash settlement for processing and closing bank-pledged gold jewelry debts",
+      "Rates": "Highest spot valuation payouts in the market counter",
+      "Branches": "Coimbatore, Mettupalayam, Ooty, Pollachi, Udumalpet"
+    },
+    "regionalText": "அடுகு நகை மீட்டு விற்க: மார்க்கெட் விலையை விட மிக அதிக விலை. உடனடி பணம். மோனிகா கோல்டு.",
+    "phone": "98422 39186",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img5_03",
+    "datePosted": "2026-06-21",
+    "category": "services",
+    "title": "Industrial & Residential Security Guard Forces",
+    "company": "Balaji Security Services",
+    "details": {
+      "Services": "Industrial, commercial factory, and residential guard deployments",
+      "Age Bracket": "Candidates aged 25 to 58 years",
+      "Location": "Coimbatore Headquarters"
+    },
+    "regionalText": "பாதுகாவலர் / செக்யூரிட்டி வேலைக்கு ஆட்கள் தேவை. பாலாஜி செக்யூரிட்டி சர்வீஸ்.",
+    "phone": "94437 39502",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img5_04",
+    "datePosted": "2026-06-21",
+    "category": "services",
+    "title": "K.S. Housing Loan & Financial Assistance",
+    "company": "K.S. Housing Finance",
+    "details": {
+      "Financial Services": "Mortgage relief loans, commercial construction financing, top-up bank loans without hassle",
+      "Address": "DB Road, RS Puram, Coimbatore (Near Kodak Mahindra Bank)"
+    },
+    "regionalText": "கடனுதவி வசதி: உங்கள் கனவு இல்லம் கட்ட, புதுப்பிக்க பினான்ஸ் மற்றும் வங்கி கடன் வசதி.",
+    "phone": "90801 33662",
+    "actionUrl": "#"
+  },  
+  {
+    "id": "20260621_img6_01",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Corporate Team Leader Recruitment",
+    "company": "Regional Operations Logistics Hub",
+    "details": {
+      "Salary Package": "Fixed salary Rs. 15,000 / Month",
+      "Location": "15-7, Saravana Complex, Trichy Road, Peelamedu, Coimbatore"
+    },
+    "regionalText": "WANTED TEAM LEADER: Salary 15,000. Located at Saravana Complex, Trichy Road.",
+    "phone": "96552 05393",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img6_02",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Medical Field Delivery Boys Wanted",
+    "company": "Medical & Surgical Supply Chain",
+    "details": {
+      "Age Limit": "No Age Limit restrictions enforce",
+      "Perks": "Good monthly fuel allowance tracking + statutory variables paid out"
+    },
+    "regionalText": "WANTED DELIVERY BOYS (No Age Limit): Medical Field / Surgical Field distribution operations.",
+    "phone": "97518 13822",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img6_03",
+    "datePosted": "2026-06-21",
+    "category": "jobs",
+    "title": "Packaging Telecallers & Backoffice Assistants",
+    "company": "Leading Industrial Packaging Firm",
+    "details": {
+      "Age Limit": "18 to 45 Years old",
+      "Compensation": "Attractive baseline fixed salary + monthly attendance bonus"
+    },
+    "regionalText": "WANTED FOR LEADING PACKAGING COMPANY: Telecallers and office staff needed. Age 18 to 45.",
+    "phone": "95005 99931",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img6_04",
+    "datePosted": "2026-06-21",
+    "category": "services",
+    "title": "Professional Driving Lessons & Licensing",
+    "company": "Vadavalli R.S. Puram Driving School",
+    "details": {
+      "Services": "Two-wheeler and four-wheeler license training programs with government registration assistance",
+      "Locations": "Vadavalli and R.S. Puram setups, Coimbatore"
+    },
+    "regionalText": "டிரைவிங் ஸ்கூல்: வடவள்ளி மற்றும் ஆர்.எஸ்.புரம் கிளைகளில் சிறந்த முறையில் பயிற்சி.",
+    "phone": "80122 44411",
+    "actionUrl": "#"
+  },
+  {
+    "id": "20260621_img6_05",
+    "datePosted": "2026-06-21",
+    "category": "offers",
+    "title": "Instant Credit Card Processing & Gold Loans",
+    "company": "Tejaas Creations FinTech Solutions",
+    "details": {
+      "Service": "Instant cash extraction on credit card processing lines, spot gold loan releases",
+      "Processing": "100% Secure quick process transactions setup"
+    },
+    "regionalText": "உடனடி பணம்: கிரெடிட் கார்டு ஸ்வைப் மூலம் உடனடி பணம் மற்றும் நகை கடன் வசதிகள். தேஜாஸ் கிரியேஷன்ஸ்.",
+    "phone": "63857 12034",
     "actionUrl": "#"
   },
   {
